@@ -1,0 +1,683 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Airspace Commons (Copy)</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one long scroll in the deck's black-and-white world; each section is a band with a 1120px inner column. Single dark look, by choice, to match the team's deck. */
+:root {
+  color-scheme: dark;
+  --bg: #0a0a0b;
+  --surface: #141416;
+  --surface-2: #1c1c1f;
+  --line: #2b2b30;
+  --fg: #f3f3f0;
+  --muted: #9b9ba3;
+  --a1: #6f9bff;   /* Flights pay their way */
+  --a2: #c08bff;   /* One sky, many readers */
+  --a3: #39c98d;   /* The sky answers to the street */
+  --cdph: #ff6a2b; /* CDPH's own use, as in the deck */
+  --good: #39c98d;
+  --warn: #f2b33d;
+  --bad: #ff5d5d;
+  --display: "Archivo", "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  --body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.55; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: 72px; border-top: 1px solid var(--line); }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3 { font-family: var(--display); font-stretch: 125%; font-weight: 800; letter-spacing: -0.01em; text-wrap: balance; margin: 0; line-height: 1.02; }
+h1 { font-size: clamp(40px, 7vw, 84px); }
+h2 { font-size: clamp(30px, 4.4vw, 52px); }
+h3 { font-size: clamp(20px, 2.2vw, 26px); font-weight: 700; line-height: 1.15; }
+p { margin: 0; }
+.lead { font-size: clamp(17px, 1.6vw, 20px); color: var(--fg); max-width: 62ch; }
+.muted { color: var(--muted); }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+
+/* Header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 24px; padding-block: 14px; flex-wrap: wrap; }
+.mark { font-family: var(--display); font-stretch: 125%; font-weight: 800; font-size: 18px; text-decoration: none; white-space: nowrap; }
+.mark span { color: var(--muted); font-weight: 500; }
+.nav { display: flex; gap: 18px; flex-wrap: wrap; font-size: 14px; }
+.nav a { text-decoration: none; color: var(--muted); }
+.nav a:hover { color: var(--fg); }
+
+.notice { font-size: 13px; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px; display: inline-flex; gap: 8px; align-items: center; }
+.notice b { color: var(--fg); font-weight: 600; }
+
+/* Hero */
+.hero { padding-block: 56px 72px; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; margin-top: 40px; }
+.hero-grid > * { min-width: 0; }
+.venn-box { position: relative; }
+.venn { width: 100%; height: auto; display: block; }
+.venn .ring { cursor: pointer; transition: fill-opacity .2s; }
+.venn .ring:hover { fill-opacity: .2; }
+.venn .hit { cursor: pointer; }
+.venn text { pointer-events: none; paint-order: stroke; stroke: var(--bg); stroke-width: 4px; stroke-linejoin: round; }
+.venn .lbl { font-family: var(--body); font-size: 12px; fill: var(--muted); }
+.venn .nm { font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 15px; fill: var(--fg); }
+.venn .sub { font-family: var(--body); font-size: 11.5px; fill: var(--muted); }
+.venn .sel { stroke-width: 3; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 12px; min-height: 230px; }
+.panel .tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.panel h3 { font-size: 24px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--fg); background: transparent; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: 500; }
+.btn:hover { background: var(--fg); color: var(--bg); }
+.btn.ghost { border-color: var(--line); color: var(--muted); }
+.btn.ghost:hover { background: var(--surface-2); color: var(--fg); }
+.doors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.door { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 18px 20px; cursor: pointer; display: flex; flex-direction: column; gap: 6px; }
+.door:hover { border-color: var(--fg); }
+.door .who { font-family: var(--display); font-stretch: 112%; font-weight: 800; font-size: 18px; }
+.door .go { font-size: 14px; color: var(--muted); }
+.dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; flex: none; }
+
+/* Archetypes */
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 28px 0 32px; }
+.tab { border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 10px 16px; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; }
+.tab[aria-selected="true"] { border-color: var(--fg); background: var(--fg); color: var(--bg); }
+.arch-head { display: grid; grid-template-columns: 1.2fr .8fr; gap: 40px; }
+.arch-head > * { min-width: 0; }
+.rel { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.promise { font-size: clamp(19px, 2vw, 24px); line-height: 1.35; max-width: 34ch; font-weight: 500; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { font-family: var(--mono); font-size: 12px; border: 1px solid var(--line); border-radius: 6px; padding: 3px 8px; color: var(--muted); }
+.chip.cdph { border-color: color-mix(in srgb, var(--cdph) 60%, transparent); color: var(--fg); }
+.chip.cdph::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--cdph); margin-right: 6px; vertical-align: 1px; }
+.side { border-left: 1px solid var(--line); padding-left: 24px; display: flex; flex-direction: column; gap: 18px; }
+.side dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.side dd { margin: 4px 0 0; font-size: 15px; }
+.narr { margin-top: 36px; padding: 24px; background: var(--surface); border-radius: 14px; border: 1px solid var(--line); }
+.narr p { max-width: 75ch; }
+
+.cap-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin: 48px 0 16px; }
+.legend { display: flex; gap: 16px; font-size: 13px; color: var(--muted); flex-wrap: wrap; }
+.cap { display: grid; grid-template-columns: 130px 1fr 1fr; border-top: 1px solid var(--line); }
+.cap > div { padding: 14px 12px; min-width: 0; font-size: 14px; }
+.cap .name { font-weight: 600; padding-left: 0; display: flex; flex-direction: column; gap: 8px; }
+.cap .spend { color: var(--muted); border-left: 1px solid var(--line); }
+.cap .gain { border-left: 1px solid var(--line); }
+.cap .col-h { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding-top: 0; padding-bottom: 10px; }
+.cap .col-h.name { padding-bottom: 10px; }
+.cap.headrow { border-top: none; }
+.scale { position: relative; height: 10px; width: 100px; border-radius: 999px; background: var(--surface-2); }
+.scale::before { content: ""; position: absolute; left: 50%; top: -3px; bottom: -3px; width: 1px; background: var(--line); }
+.scale i { position: absolute; top: 50%; width: 14px; height: 14px; border-radius: 50%; transform: translate(-50%, -50%); border: 2px solid var(--bg); }
+.net-label { font-family: var(--mono); font-size: 11px; color: var(--muted); font-weight: 400; }
+.trades { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 40px; }
+.trade { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+.trade h4 { margin: 0; font-size: 16px; }
+.trade .intent { font-family: var(--mono); font-size: 12px; }
+.check { margin-top: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.check > div { border: 1px dashed var(--line); border-radius: 12px; padding: 16px 18px; }
+
+/* Push it */
+.push-grid { display: grid; grid-template-columns: 1fr; gap: 56px; margin-top: 32px; }
+.phase-ctl { display: flex; flex-direction: column; gap: 10px; max-width: 640px; }
+input[type=range] { width: 100%; accent-color: var(--fg); }
+.ticks { display: grid; grid-template-columns: repeat(3, 1fr); font-size: 13px; color: var(--muted); }
+.ticks span:nth-child(2) { text-align: center; }
+.ticks span:nth-child(3) { text-align: right; }
+.ticks .on { color: var(--fg); font-weight: 600; }
+.phase-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+.phase-col { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.phase-col ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; }
+.phase-col li.new { color: var(--fg); }
+.phase-col li.old { color: var(--muted); }
+.gate { margin-top: 16px; border-left: 3px solid var(--fg); padding: 4px 0 4px 14px; font-size: 15px; max-width: 75ch; }
+.readers { font-size: 14px; color: var(--muted); margin-top: 8px; }
+
+.ctx-pick { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+.ctx { border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 8px 14px; cursor: pointer; font-size: 14px; display: inline-flex; gap: 8px; align-items: center; }
+.ctx[aria-pressed="true"] { border-color: var(--fg); background: var(--surface-2); }
+.ctx .v { width: 8px; height: 8px; border-radius: 50%; }
+.ctx-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 32px; }
+.ctx-card > * { min-width: 0; }
+.ctx-card .full { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: start; gap: 16px; flex-wrap: wrap; }
+.verdict { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; border-radius: 999px; padding: 4px 10px; border: 1px solid currentColor; }
+.ctx-card dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 4px; }
+.ctx-card dd { margin: 0; font-size: 15px; }
+
+/* Ledger */
+.ledger-grid { display: grid; grid-template-columns: 300px 1fr; gap: 32px; margin-top: 32px; align-items: start; }
+.ledger-grid > * { min-width: 0; }
+.block-card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 14px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 76px); }
+.block-id { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.meter { height: 10px; background: var(--surface-2); border-radius: 999px; overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--warn); border-radius: 999px; }
+.meter-row { display: flex; justify-content: space-between; font-size: 13px; font-variant-numeric: tabular-nums; }
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.feed { display: flex; flex-direction: column; border-top: 1px solid var(--line); }
+.entry { border-bottom: 1px solid var(--line); }
+.entry summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; padding: 16px 4px; align-items: baseline; }
+.entry summary::-webkit-details-marker { display: none; }
+.entry summary:hover { background: var(--surface); }
+.time { font-family: var(--mono); font-size: 14px; font-variant-numeric: tabular-nums; color: var(--muted); }
+.what { font-size: 15px; }
+.what b { font-weight: 600; }
+.pur { font-family: var(--mono); font-size: 11.5px; padding: 3px 8px; border-radius: 6px; border: 1px solid var(--line); white-space: nowrap; }
+.pur.health { color: var(--a3); border-color: color-mix(in srgb, var(--a3) 50%, transparent); }
+.pur.safety { color: var(--a1); border-color: color-mix(in srgb, var(--a1) 50%, transparent); }
+.pur.emergency { color: var(--warn); border-color: color-mix(in srgb, var(--warn) 50%, transparent); }
+.pur.denied { color: var(--bad); border-color: color-mix(in srgb, var(--bad) 50%, transparent); }
+.entry dl { display: grid; grid-template-columns: 140px 1fr; gap: 6px 16px; margin: 0 4px 18px 82px; font-size: 14px; }
+.entry dt { color: var(--muted); }
+.entry dd { margin: 0; }
+.toast { font-size: 13px; color: var(--muted); }
+
+/* What must change */
+.conds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }
+.cond { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+.cond h4 { margin: 0; font-size: 17px; font-weight: 600; }
+.cond.key { border-color: var(--fg); }
+.closing { margin-top: 40px; font-family: var(--display); font-stretch: 112%; font-weight: 700; font-size: clamp(20px, 2.4vw, 30px); line-height: 1.2; max-width: 30ch; }
+
+footer { border-top: 1px solid var(--line); padding-block: 32px 48px; font-size: 13px; color: var(--muted); }
+footer .wrap { display: flex; flex-direction: column; gap: 8px; }
+
+@media (max-width: 900px) {
+  .hero-grid, .arch-head { grid-template-columns: 1fr; }
+  .side { border-left: none; padding-left: 0; border-top: 1px solid var(--line); padding-top: 20px; }
+  .trades, .conds, .phase-cols { grid-template-columns: 1fr; }
+  .ledger-grid { grid-template-columns: 1fr; }
+  .block-card { position: static; }
+  .check { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .band { padding-block: 52px; }
+  .doors { grid-template-columns: 1fr; }
+  .cap { grid-template-columns: 1fr 1fr; }
+  .cap .name { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: space-between; padding-bottom: 0; }
+  .cap .spend { border-left: none; padding-left: 0; }
+  .cap.headrow .name { display: none; }
+  .ctx-card { grid-template-columns: 1fr; }
+  .entry summary { grid-template-columns: 52px 1fr; }
+  .entry summary .pur { grid-column: 2; justify-self: start; }
+  .entry dl { grid-template-columns: 1fr; margin-left: 4px; }
+  .entry dt { margin-top: 6px; }
+  .nav { gap: 12px; font-size: 13px; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="mark" href="#top">Airspace Commons <span>Chicago</span></a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#archetypes">Archetypes</a>
+      <a href="#push">Push it</a>
+      <a href="#ledger">The ledger</a>
+      <a href="#change">What must change</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="notice"><b>Design proposal</b> Student work, Institute of Design. Not a City of Chicago service.</div>
+      <div class="hero-grid">
+        <div class="stack" style="gap:24px">
+          <h1>One sky. Many readers. Answerable to the street.</h1>
+          <p class="lead">Chicago builds one airspace commons that the drone industry pays for, every agency reads from, and the people under the flights can see, question and refuse.</p>
+          <p class="muted" style="max-width:60ch">Three relationships hold it up. Each brings what the other two need. Tap a circle or an overlap to see how.</p>
+        </div>
+        <div class="venn-box stack">
+          <svg class="venn" id="venn" viewBox="0 0 520 470" role="img" aria-label="Three overlapping circles: Flights pay their way, One sky many readers, and The sky answers to the street, with the commons in the middle">
+            <circle class="ring" data-k="a1" cx="260" cy="170" r="140" fill="var(--a1)" fill-opacity=".1" stroke="var(--a1)" stroke-width="1.5"/>
+            <circle class="ring" data-k="a2" cx="170" cy="320" r="140" fill="var(--a2)" fill-opacity=".1" stroke="var(--a2)" stroke-width="1.5"/>
+            <circle class="ring" data-k="a3" cx="350" cy="320" r="140" fill="var(--a3)" fill-opacity=".1" stroke="var(--a3)" stroke-width="1.5"/>
+            <text class="nm" x="260" y="74" text-anchor="middle">Flights pay</text>
+            <text class="nm" x="260" y="93" text-anchor="middle">their way</text>
+            <text class="sub" x="260" y="112" text-anchor="middle">operators ↔ city</text>
+            <text class="nm" x="122" y="372" text-anchor="middle">One sky,</text>
+            <text class="nm" x="122" y="391" text-anchor="middle">many readers</text>
+            <text class="sub" x="122" y="410" text-anchor="middle">agency ↔ agency</text>
+            <text class="nm" x="398" y="372" text-anchor="middle">The sky answers</text>
+            <text class="nm" x="398" y="391" text-anchor="middle">to the street</text>
+            <text class="sub" x="398" y="410" text-anchor="middle">city ↔ residents</text>
+            <rect class="hit" data-k="o12" x="150" y="210" width="90" height="44" fill="transparent"/>
+            <text class="lbl" x="195" y="228" text-anchor="middle">shared pods,</text>
+            <text class="lbl" x="195" y="244" text-anchor="middle">one front door</text>
+            <rect class="hit" data-k="o13" x="280" y="210" width="96" height="44" fill="transparent"/>
+            <text class="lbl" x="328" y="228" text-anchor="middle">burden budget,</text>
+            <text class="lbl" x="328" y="244" text-anchor="middle">on the ledger</text>
+            <rect class="hit" data-k="o23" x="215" y="358" width="90" height="44" fill="transparent"/>
+            <text class="lbl" x="260" y="376" text-anchor="middle">purpose labels,</text>
+            <text class="lbl" x="260" y="392" text-anchor="middle">a public vote</text>
+            <rect class="hit" data-k="core" x="210" y="262" width="100" height="44" fill="transparent"/>
+            <text class="nm" x="260" y="283" text-anchor="middle" style="font-size:14px">The commons</text>
+            <text class="sub" x="260" y="299" text-anchor="middle" style="fill:var(--fg)">built once</text>
+          </svg>
+          <div class="panel" id="vpanel" aria-live="polite"></div>
+        </div>
+      </div>
+      <div class="doors" role="group" aria-label="Start from where you stand">
+        <button class="door" data-go="a1"><span class="dot" style="background:var(--a1)"></span><span class="who">I fly drones</span><span class="go">What you give, what you get back →</span></button>
+        <button class="door" data-go="a2"><span class="dot" style="background:var(--a2)"></span><span class="who">I run an agency</span><span class="go">One map, one queue, one backup plan →</span></button>
+        <button class="door" data-go="a3"><span class="dot" style="background:var(--a3)"></span><span class="who">I live under the flights</span><span class="go">See it, question it, say no →</span></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="archetypes">
+    <div class="wrap">
+      <span class="eyebrow">Three archetypes</span>
+      <h2 style="margin-top:12px">Who gives what, who gets what</h2>
+      <div class="tabs" role="tablist" aria-label="Archetypes">
+        <button class="tab" role="tab" id="tab-a1" data-k="a1" aria-selected="true"><span class="dot" style="background:var(--a1)"></span>Flights pay their way</button>
+        <button class="tab" role="tab" id="tab-a2" data-k="a2" aria-selected="false"><span class="dot" style="background:var(--a2)"></span>One sky, many readers</button>
+        <button class="tab" role="tab" id="tab-a3" data-k="a3" aria-selected="false"><span class="dot" style="background:var(--a3)"></span>The sky answers to the street</button>
+      </div>
+      <div id="arch" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <section class="band" id="push">
+    <div class="wrap">
+      <span class="eyebrow">Expanding</span>
+      <h2 style="margin-top:12px">How far can the commons be pushed?</h2>
+      <p class="lead" style="margin-top:16px">Governance is the constant: purpose labels, the ledger, the custodian and an owner held in every agency, space and carrier we tested. The airspace stays first. The commons grows there in three phases before it goes anywhere else.</p>
+      <div class="push-grid">
+        <div>
+          <h3>Growth path in the airspace</h3>
+          <div class="phase-ctl" style="margin-top:16px">
+            <label for="phase" class="muted" style="font-size:14px">Drag to switch phases on. Gates are conditions, not dates.</label>
+            <input type="range" id="phase" min="1" max="3" step="1" value="1">
+            <div class="ticks" id="ticks"><span>Ride-along</span><span>Steered</span><span>Held</span></div>
+          </div>
+          <p class="readers" id="readers"></p>
+          <div class="phase-cols" id="phasecols"></div>
+          <p class="gate" id="gate"></p>
+        </div>
+        <div>
+          <h3>Next contexts</h3>
+          <p class="muted" style="margin-top:8px;max-width:62ch">Pick a context to see what carries over, what breaks, and the condition for it to hold.</p>
+          <div class="ctx-pick" id="ctxpick" role="group" aria-label="Contexts"></div>
+          <div class="ctx-card" id="ctxcard" aria-live="polite"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="ledger">
+    <div class="wrap">
+      <span class="eyebrow">Archetype 3, in practice</span>
+      <h2 style="margin-top:12px">Nothing overhead goes unexplained</h2>
+      <p class="lead" style="margin-top:16px">The public ledger for one block. Anyone can see who flew over, when, for whom and why, what was collected, and who looked at it. What the gate refuses shows up too.</p>
+      <div class="ledger-grid">
+        <aside class="block-card" aria-label="Block summary">
+          <span class="block-id">EXAMPLE · BLOCK B-8405 · Tuesday</span>
+          <h3 style="font-size:22px">South Lawndale, near the school</h3>
+          <div class="stack" style="gap:8px">
+            <div class="meter-row"><span>Burden budget this month</span><span>34 of 40 flights</span></div>
+            <div class="meter" role="img" aria-label="34 of 40 flights used"><i style="width:85%"></i></div>
+            <p class="muted" style="font-size:13px">Near the review line. New extras over this block pause at 40 until the city reviews.</p>
+          </div>
+          <button class="btn" id="lower">Ask for a lower budget</button>
+          <p class="toast" id="lowermsg" hidden>In the full design this goes to the neighborhood panel, and the custodian board takes it up next cycle.</p>
+          <p class="muted" style="font-size:12px">Fictional block and figures, for illustration.</p>
+        </aside>
+        <div>
+          <div class="filters" id="filters" role="group" aria-label="Filter by purpose"></div>
+          <div class="feed" id="feed"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="change">
+    <div class="wrap">
+      <span class="eyebrow">What has to change</span>
+      <h2 style="margin-top:12px">Six conditions. None exists today.</h2>
+      <p class="lead" style="margin-top:16px">The commons holds as far as the city's ground lever reaches, and only if the burden budget really caps total flying. Both mandates rest on it. The city can enforce a cap only through the ground it controls: launch sites, hubs and permits.</p>
+      <div class="conds">
+        <div class="cond key"><h4>A burden budget the city can enforce</h4><p class="muted">Tied to siting, launch-site access and permits, counted across every agency's flights, never loosened as the industry grows.</p></div>
+        <div class="cond"><h4>An owner that isn't a tenant</h4><p class="muted">DTI hosts the platform. An independent custodian board, created by ordinance, decides who may use the data.</p></div>
+        <div class="cond"><h4>Purpose rules with teeth</h4><p class="muted">A closed list of purposes, a public vote to add one, a never-allowed list, carrier eligibility, and data minimized at the source.</p></div>
+        <div class="cond"><h4>A named arbiter</h4><p class="muted">OEMC in emergencies. For everyday conflicts: the protected burden share first, then purpose, then first come.</p></div>
+        <div class="cond"><h4>A cost split</h4><p class="muted">The base is funded centrally, add-ons are paid by whoever asks, regulated parties pay for their own impacts.</p></div>
+        <div class="cond"><h4>Paid participation</h4><p class="muted">Stipends for crews and panel members, and a seating rule that puts the highest-burden blocks first.</p></div>
+      </div>
+      <p class="closing">Archetype 1 without 3 is surveillance with good terms. Archetype 2 without 3 is efficient exposure. Archetype 3 without 1 and 2 has nothing to govern.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Airspace Commons is a speculative design proposal from a Complex Systems Innovation team at IIT's Institute of Design. It is not affiliated with the City of Chicago or CDPH.</span>
+    <span>Built from the team's Archetypes, Reflecting and Expanding tabs (11.02). Northline, block B-8405 and every figure in the ledger are fictional.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var V = {
+    a1: { tag: "Archetype 1 · operators ↔ city", title: "Flights pay their way", color: "var(--a1)", body: "Operators use city launch sites and pay for that access in data. They get a pooled weather and route picture back. A burden budget keeps the loop from running away.", btn: "Read archetype 1" },
+    a2: { tag: "Archetype 2 · agency ↔ agency", title: "One sky, many readers", color: "var(--a2)", body: "One base map every agency reads from, one queue for data-thin blocks, one backup plan, and one fair way to decide who flies first.", btn: "Read archetype 2" },
+    a3: { tag: "Archetype 3 · city ↔ residents", title: "The sky answers to the street", color: "var(--a3)", body: "The people under the flights can see every flight, question it and say no to cameras and enforcement. That is what lets the system grow without sliding into surveillance.", btn: "Read archetype 3" },
+    o12: { tag: "Where 1 and 2 overlap", title: "Shared pods, one front door", color: "var(--fg)", body: "One pod serves several agencies, so added readers don't add flights. Operators face one menu with a cap on total asks, not five departments." },
+    o13: { tag: "Where 1 and 3 overlap", title: "Burden budget, on the ledger", color: "var(--fg)", body: "One cap per block, counted across every agency, and every flight visible to the people under it. Panels can ask for a lower budget.", btn: "See a block's ledger", href: "#ledger" },
+    o23: { tag: "Where 2 and 3 overlap", title: "Purpose labels, a public vote", color: "var(--fg)", body: "Every reading remembers why it was taken. No new agency or use joins without the purpose rules, the panels and a public vote." },
+    core: { tag: "Where all three overlap", title: "The commons, built once", color: "var(--fg)", body: "Base map, payload standard, tasking queue and backup plan. Agencies plug in. CDPH is the first, and no longer the whole system.", btn: "What has to change", href: "#change" }
+  };
+  var panel = document.getElementById("vpanel");
+  function showV(k) {
+    var d = V[k];
+    panel.innerHTML = "";
+    var tag = el("span", "tag", d.tag);
+    var h = el("h3", "", d.title); h.style.color = d.color;
+    var p = el("p", "muted", d.body);
+    panel.append(tag, h, p);
+    if (d.btn) {
+      var b = el("a", "btn", d.btn + " →"); b.href = d.href || "#archetypes";
+      b.style.alignSelf = "flex-start";
+      if (!d.href) b.addEventListener("click", function () { selectArch(k); });
+      panel.append(b);
+    }
+    document.querySelectorAll("#venn .ring").forEach(function (c) { c.classList.toggle("sel", c.dataset.k === k); });
+  }
+  document.querySelectorAll("#venn [data-k]").forEach(function (n) { n.addEventListener("click", function () { showV(n.dataset.k); }); });
+  showV("core");
+  document.querySelectorAll(".door").forEach(function (d) {
+    d.addEventListener("click", function () { selectArch(d.dataset.go); document.getElementById("archetypes").scrollIntoView(); });
+  });
+
+  function el(t, c, txt) { var e = document.createElement(t); if (c) e.className = c; if (txt != null) e.textContent = txt; return e; }
+
+  var A = {
+    a1: {
+      color: "var(--a1)", rel: "Operators ↔ city", name: "Flights pay their way",
+      promise: "The more drones fly, the more the city can see, and the less any one block carries.",
+      protos: [["PT-TERMS"], ["PT-BUDGET"], ["PT-PODS", 1], ["PT-STEER", 1], ["PT-MANDATE", 1]],
+      gives: "Operators give flight logs, sensor data and pod carriage, and stay inside burden budgets. Facilities fund their own monitoring.",
+      gets: "Operators get site access, predictable approvals and a pooled weather and corridor picture. Neighborhoods get a cap on what flies over them.",
+      cdph: "CDPH's siting review is the hook for Base 1. Its pods ride as add-ons, and it pays to steer them over thin, burdened blocks.",
+      narr: "Flights pay their way moves the cost of monitoring off the city's budget and onto those who fly and pollute. It pays in operator goodwill and staff time. Its natural capital is mixed, because its value rises with every flight. It meets the equity mandate only through the burden budget, and sustainability only if that budget caps total flying across every agency. It holds wherever private operators use public ground, gets worse with camera payloads, and breaks at the city border, where hubs can move to avoid Base 1.",
+      cap: [
+        ["Financial", "±", "Monitoring the city doesn't pay for: operators pay in data, facilities fund surveys", "Operators' compliance costs; CDPH pays for steering"],
+        ["Social", "±", "Burdened blocks get a cap on what flies over them", "Operators may route around capped areas, so thinly served places lose service"],
+        ["Political", "−", "Health evidence at siting; a seat in airspace decisions", "Every ask spends operator goodwill; hard terms may push hubs out of the city"],
+        ["Digital", "+", "A pooled picture of the airspace no one could build alone", "Flight logs are sensitive: a delivery endpoint is a home"],
+        ["Natural", "±", "Air quality evidence near sources and hubs", "Value rises with every flight: more noise, energy and wildlife disturbance"],
+        ["Manufactured", "+", "Hubs become sensing sites; one payload standard", "Retrofit and mounting costs"],
+        ["Human", "−", "Operators gain a predictable process", "Reviewers and a city terms desk need time and skills"],
+        ["Cultural", "±", "Drones read as civic infrastructure that gives back", "Constant overflight becomes the price of being seen"]
+      ],
+      trades: [
+        ["Seeing more by flying more", "The intent decides: the cap wins over growth", "The burden budget caps total flights per neighborhood; shared pods mean more sensing without more flights."],
+        ["A cap against access to delivery", "The intent only partly decides", "Watch for service avoidance in the ledger; panels can ask for exceptions inside their budget."],
+        ["Every ask spends the same goodwill", "The intent is silent on operators", "One front door, a fixed menu and a cap on total asks."]
+      ],
+      checked: "Checked by archetype 3 (panels can lower a block's budget; the ledger shows the count) and archetype 2 (shared pods mean added readers don't add flights).",
+      breaks: "Breaks at the city border, where hubs can move to avoid Base 1. Holds if the siting review covers hubs and vertiports, and Base 1 adds something beyond Remote ID."
+    },
+    a2: {
+      color: "var(--a2)", rel: "Agency ↔ agency", name: "One sky, many readers",
+      promise: "Sensing and coordination no single agency could afford or legitimately run alone.",
+      protos: [["BASE-MAP"], ["PT-GAPS"], ["PT-EMERGENCY"], ["PT-FALLBACK"], ["PT-EXERCISE", 1]],
+      gives: "Each agency brings its layer, its criteria and a share of base costs. OEMC arbitrates in emergencies. Partner fleets lend by rule.",
+      gets: "The base map, the queue, continuity in a grounding, and other agencies' layers within its purpose. DTI runs it but doesn't decide who may use the data.",
+      cdph: "CDPH brings the health layer, writes its criteria for asking for emergency mode, runs PT-WATCH on the shared simulator, and rehearses with CFD and OEMC.",
+      narr: "One sky, many readers builds a coordination capacity the city doesn't have today, and each agency pays less than it would alone. The cost is agency autonomy and concentrated exposure: more readers watching the same residents, and one point of failure. It meets equity through the protected share in the gap queue, and sustainability because one flight serves many readers. It holds easily for Water Management and an ecology steward, depends on terms for CFD, OEMC and Aviation, and reaches its boundary at CPD.",
+      cap: [
+        ["Financial", "±", "Each agency pays less: one map, one queue, one fallback", "One shared budget line to defend every year, and one target in a cut"],
+        ["Social", "−", "Better-coordinated emergency response for everyone", "More readers means more exposure for the same residents"],
+        ["Political", "±", "Coordination the city lacks; clear roles for OEMC and DTI", "Agencies give up autonomy to an arbiter and an access matrix"],
+        ["Digital", "±", "One standard and one map, so layers line up", "One breach exposes every agency's data"],
+        ["Natural", "+", "One flight serves many readers; an ecology steward reads migration", "Emergency mode can override ecological limits"],
+        ["Manufactured", "±", "Shared fleets, anchor sites and pods", "Fleets are contested in the same events"],
+        ["Human", "±", "Joint exercises build shared skills", "Time spent agreeing instead of acting"],
+        ["Cultural", "±", "Agencies move from owning data to sharing it", "Departments used to owning their data will resist"]
+      ],
+      trades: [
+        ["Efficiency against exposure", "The intent decides: every reading answers to the people beneath it", "No new reader joins without the purpose rules and the panels. This trade is handed to archetype 3."],
+        ["Coordination against autonomy", "The intent is silent on what agencies give up", "A named arbiter for routine conflicts; agencies keep their own playbooks."],
+        ["One map, one point of failure", "The intent is silent", "Layers stay separate under the base map; the backup plan covers the platform too."]
+      ],
+      checked: "Checked by archetype 3 (no new reader or purpose without a public vote and the panels) and archetype 1 (operators' data is only reachable through the commons, so joining beats going alone).",
+      breaks: "Reaches its boundary at CPD, where efficiency turns into surveillance. Holds if DTI gets the mandate, OEMC takes the arbiter role and agencies sign a cost split."
+    },
+    a3: {
+      color: "var(--a3)", rel: "City ↔ residents", name: "The sky answers to the street",
+      promise: "The system can add agencies and flights without sliding into surveillance, because the people under it can see it, question it and say no.",
+      protos: [["PT-LEDGER"], ["PT-PURPOSE"], ["PT-CUSTODIAN"], ["PT-CREWS", 1], ["PT-VERIFIED", 1]],
+      gives: "Residents give time, readings and decisions on uses. Agencies give disclosure and accept purpose limits. The board gives custody and audit.",
+      gets: "Residents get the ledger, a say over purposes, standing to be answered and protection from drift. Agencies get data residents will trust, and permission to keep flying.",
+      cdph: "CDPH brings its health workers and messengers, accepts resident-verified readings with a duty to answer, and carries Healthy Chicago 2025's principle that the people affected decide how they are measured.",
+      narr: "The sky answers to the street moves authority over purposes to residents and the burden of proof to agencies. It pays in money, in residents' unpaid time, and in the risk that a refusal leaves real harm unmeasured. It is the strongest of the three on community power and the weakest on sustainability: it earns nothing and depends on the other two to fund stipends and panels. It carries the most weight wherever the city operates directly, and it breaks if it cannot say no to CPD.",
+      cap: [
+        ["Financial", "−", "Nothing directly", "Board, panels, ledger and stipends cost money and earn none"],
+        ["Social", "+", "Trust, standing and a public record; the burden of proof moves to agencies", "Panels can be captured by the best-organized groups"],
+        ["Political", "±", "Residents gain real authority over purposes", "Agencies lose discretion; refusals block some uses; needs Council action"],
+        ["Digital", "±", "Every flight and every look is on the record", "The ledger is itself a map of what the city watches"],
+        ["Natural", "−", "Nothing directly", "A refusal can leave real harm unmeasured"],
+        ["Manufactured", "·", "Little effect", "Little effect"],
+        ["Human", "−", "Crews and panels build local skills and leadership", "Residents' time, often unpaid; health workers' time"],
+        ["Cultural", "+", "The people affected decide how they are measured", "Clashes with enforcement cultures that expect access"]
+      ],
+      trades: [
+        ["Residents' say against protection", "A tension inside our own intent", "Refusals bind on cameras and enforcement, not on sensor-only health readings; the ledger shows where refusals leave gaps."],
+        ["Legitimacy paid for in residents' time", "The intent is silent", "Stipends for crews and panel members; panels decide categories once a year."],
+        ["Who speaks for a neighborhood", "The intent only partly decides", "Seats for the highest-burden blocks first, open applications, and a ledger anyone can read."]
+      ],
+      checked: "Checked by archetype 2 (health readings stay advisory, so the protected share still reaches a block) and archetypes 1 and 2 (operator-paid data and shared costs fund stipends and panels).",
+      breaks: "Breaks if it cannot say no to CPD, or if panels thin out to the organized few. Holds if the board is created by ordinance and refusals bind on cameras and enforcement."
+    }
+  };
+  var NETPOS = { "−": 12, "±": 50, "·": 50, "+": 88 };
+  var NETWORD = { "−": "spends", "±": "mixed", "·": "little effect", "+": "gains" };
+
+  var archEl = document.getElementById("arch");
+  function selectArch(k) {
+    document.querySelectorAll(".tab").forEach(function (t) { t.setAttribute("aria-selected", t.dataset.k === k ? "true" : "false"); });
+    archEl.setAttribute("aria-labelledby", "tab-" + k);
+    var a = A[k];
+    archEl.innerHTML = "";
+    var head = el("div", "arch-head");
+    var left = el("div", "stack");
+    left.style.gap = "18px";
+    var rel = el("span", "rel", a.rel);
+    var h = el("h3", "", a.name); h.style.fontSize = "clamp(26px,3vw,38px)"; h.style.color = a.color;
+    var pr = el("p", "promise", a.promise);
+    var chips = el("div", "chips");
+    a.protos.forEach(function (p) { chips.append(el("span", "chip" + (p[1] ? " cdph" : ""), p[0])); });
+    var note = el("p", "muted", "Orange dot = CDPH's own use."); note.style.fontSize = "13px";
+    left.append(rel, h, pr, chips, note);
+    var side = el("dl", "side");
+    [["What they give", a.gives], ["What they get", a.gets], ["CDPH's part", a.cdph]].forEach(function (r) {
+      var w = el("div"); w.append(el("dt", "", r[0]), el("dd", "", r[1])); side.append(w);
+    });
+    side.style.margin = "0";
+    head.append(left, side);
+
+    var narr = el("div", "narr stack");
+    narr.append(el("span", "eyebrow", "The narrative"), el("p", "", a.narr));
+
+    var capHead = el("div", "cap-head");
+    var ch = el("div", "stack"); ch.style.gap = "6px";
+    ch.append(el("h3", "", "Flow of capital"), el("p", "muted", "What it gains and what it spends, across all eight forms of capital."));
+    var lg = el("div", "legend");
+    lg.innerHTML = "<span>Marker left = net spend</span><span>centre = mixed</span><span>right = net gain</span>";
+    capHead.append(ch, lg);
+
+    var table = el("div");
+    table.setAttribute("role", "table");
+    table.setAttribute("aria-label", "Flow of capital for " + a.name);
+    var hr = el("div", "cap headrow"); hr.setAttribute("role", "row");
+    [["Capital", "col-h name"], ["Spends", "col-h spend"], ["Gains", "col-h gain"]].forEach(function (c) { var d = el("div", c[1], c[0]); d.setAttribute("role", "columnheader"); hr.append(d); });
+    table.append(hr);
+    a.cap.forEach(function (c) {
+      var row = el("div", "cap"); row.setAttribute("role", "row");
+      var nm = el("div", "name"); nm.setAttribute("role", "rowheader");
+      var top = el("span", "", c[0]);
+      var sc = el("span", "scale"); sc.setAttribute("aria-label", "Net: " + NETWORD[c[1]]);
+      var mk = el("i"); mk.style.left = NETPOS[c[1]] + "%"; mk.style.background = c[1] === "·" ? "var(--line)" : a.color;
+      sc.append(mk);
+      var lbl = el("span", "net-label", "net " + NETWORD[c[1]]);
+      var g = el("span"); g.style.display = "flex"; g.style.flexDirection = "column"; g.style.gap = "6px";
+      g.append(sc, lbl);
+      nm.append(top, g);
+      var sp = el("div", "spend", c[3]); sp.setAttribute("role", "cell");
+      var ga = el("div", "gain", c[2]); ga.setAttribute("role", "cell");
+      row.append(nm, sp, ga);
+      table.append(row);
+    });
+
+    var trades = el("div", "trades");
+    a.trades.forEach(function (t) {
+      var c = el("div", "trade");
+      var it = el("span", "intent", t[1]); it.style.color = a.color;
+      c.append(el("h4", "", t[0]), it, el("p", "muted", t[2]));
+      trades.append(c);
+    });
+    var th = el("h3", "", "Trades, said out loud"); th.style.marginTop = "48px";
+
+    var check = el("div", "check");
+    var c1 = el("div"); c1.append(el("span", "eyebrow", "Kept in check"), el("p", "", a.checked)); c1.lastChild.style.marginTop = "8px";
+    var c2 = el("div"); c2.append(el("span", "eyebrow", "Where it breaks"), el("p", "", a.breaks)); c2.lastChild.style.marginTop = "8px";
+    check.append(c1, c2);
+
+    archEl.append(head, narr, capHead, table, th, trades, check);
+  }
+  document.querySelectorAll(".tab").forEach(function (t) { t.addEventListener("click", function () { selectArch(t.dataset.k); }); });
+  selectArch("a1");
+
+  var P = [
+    { name: "Ride-along commons", sub: "passive data only", readers: "CDPH, Water Management",
+      a1: ["Base 1 at new hubs and vertiports", "Operators' passive data under the standard"],
+      a2: ["Base map live", "CDPH and Water layers", "One backup plan"],
+      a3: ["Ledger live from day one", "Purpose label on every reading", "Custodian board seated"],
+      gate: "A full season with the ledger running and no purpose breach. Panels seated in the highest-burden neighborhoods. Base 1 shown to add something beyond Remote ID." },
+    { name: "Steered commons", sub: "add-ons and the gap queue", readers: "adds CDOT, CFD and OEMC, an ecology steward",
+      a1: ["Base 2 exchange", "Add-on menu with its cap", "Shared pods on the payload standard"],
+      a2: ["Gap queue with the protected share", "A named arbiter for routine conflicts", "Base costs split"],
+      a3: ["Panels binding on cameras", "A rule for adding purposes", "Residents can file tickets"],
+      gate: "OEMC agrees to the arbiter role. A cost split signed by the agencies. The burden budget measured, not yet enforced, for a full season." },
+    { name: "Held commons", sub: "budget enforced, emergency mode", readers: "adds Aviation as a rule-holder, others by application",
+      a1: ["Burden budget enforced on every flight", "Liability terms for shared pods"],
+      a2: ["City emergency mode", "Airport rule", "Migration windows from the ecology steward"],
+      a3: ["Panels can ask for lower budgets", "Burden definition reviewed each cycle with the EJ Index group"],
+      gate: "Only once this phase is stable does the commons try another shared space." }
+  ];
+  var range = document.getElementById("phase");
+  function renderPhase() {
+    var n = +range.value;
+    var ph = P[n - 1];
+    document.querySelectorAll("#ticks span").forEach(function (s, i) { s.classList.toggle("on", i === n - 1); });
+    document.getElementById("readers").textContent = ph.name + " (" + ph.sub + ") · Readers: " + ph.readers;
+    var cols = document.getElementById("phasecols"); cols.innerHTML = "";
+    [["a1", "Flights pay their way"], ["a2", "One sky, many readers"], ["a3", "The sky answers to the street"]].forEach(function (x) {
+      var c = el("div", "phase-col");
+      var hd = el("div"); hd.style.display = "flex"; hd.style.gap = "10px"; hd.style.alignItems = "center";
+      var d = el("span", "dot"); d.style.background = A[x[0]].color;
+      var t = el("strong", "", x[1]); t.style.fontSize = "15px";
+      hd.append(d, t);
+      var ul = el("ul");
+      for (var i = 0; i < n; i++) {
+        P[i][x[0]].forEach(function (item) { ul.append(el("li", i === n - 1 ? "new" : "old", item)); });
+      }
+      c.append(hd, ul);
+      cols.append(c);
+    });
+    document.getElementById("gate").innerHTML = "";
+    var g = document.getElementById("gate");
+    var b = el("strong", "", n < 3 ? "Gate to the next phase: " : "Gate: ");
+    g.append(b, document.createTextNode(ph.gate));
+    range.setAttribute("aria-valuetext", ph.name);
+  }
+  range.addEventListener("input", renderPhase);
+  renderPhase();
+
+  var VERD = { Better: "var(--good)", Depends: "var(--warn)", Worse: "var(--bad)", Boundary: "var(--bad)" };
+  var C = [
+    ["Water Management", "2", "Better", "Base map, gap queue, backup plan, ledger. Sensor-only readings, low surveillance risk.", "Little. Its readings are slow-moving, like CDPH's.", "A Water layer, with its purposes registered with the board."],
+    ["Ecology steward", "2 and 3", "Better", "Budget, a base map layer, seasonal windows.", "Ecology can't speak; someone reads on its behalf. Migration timing moves each year.", "A named steward with a seat at the board; migration windows count against the budget."],
+    ["CFD / OEMC", "2", "Depends", "The base map as a live incident layer, shared fleets, emergency mode.", "Needs minutes, not days, and wants the same fleet in the same events. Clearing an area in minutes is largely federal.", "OEMC takes the arbiter role; health keeps a protected share of the fleet; the minute-scale limit is named."],
+    ["Aviation", "2", "Depends", "A shared traffic picture, Remote ID counts, dynamic zones.", "Aviation wants less sensing near airports. Burdened blocks near Midway sit beside restricted airspace.", "Where flights are blocked, ground sites and outside feeds stand in, and the ledger says so."],
+    ["Utility poles", "1", "Depends", "Pole attachment agreements work like Base 1: attach your equipment, share data.", "Telecom carriers are regulated by others; sensors on poles are fixed and constant.", "Attachment terms the city can actually set, and a privacy level for pole cameras."],
+    ["Sewers", "2 and 3", "Depends", "Base map, purpose labels, ledger, custodian.", "No operators, so the exchange has nothing to trade with. Wastewater data can reveal a neighborhood's health.", "Panels and purpose rules apply to the city's own sensors."],
+    ["CDOT imaging", "1 and 3", "Worse", "Payload standard, add-on menu, shared pods, purpose labels.", "Cameras catch people, yards and windows, and compete with health pods for weight and power.", "Cameras ride only at a set privacy level; panels decide on imagery; camera flights count more against the budget."],
+    ["The curb", "1", "Worse", "Base 1 as a condition of curb access, the ledger, a budget of curb time per block.", "Location data on vans and cars is personal in a way flight logs are not quite.", "Data conditions on curb permits, minimized and delayed. Los Angeles's scooter data disputes are the warning."],
+    ["Another jurisdiction", "1", "Worse", "The whole pattern: base map, terms, ledger.", "Hubs may move outside city limits to avoid Base 1. The siting lever stops at the border.", "Matching terms in neighboring jurisdictions, or a regional body."],
+    ["CPD", "3", "Boundary", "In principle, a reader like any other.", "Purpose drift. The most polluted neighborhoods are also the most policed, and any enforcement use of health data breaks trust for everyone.", "Panels bind on any enforcement-adjacent purpose; health layers are never visible to enforcement; police vehicles carry nothing by default."]
+  ];
+  var pick = document.getElementById("ctxpick"), card = document.getElementById("ctxcard");
+  function showCtx(i) {
+    pick.querySelectorAll(".ctx").forEach(function (b, j) { b.setAttribute("aria-pressed", j === i ? "true" : "false"); });
+    var c = C[i]; card.innerHTML = "";
+    var full = el("div", "full");
+    var t = el("div", "stack"); t.style.gap = "4px";
+    t.append(el("h3", "", c[0]), el("span", "rel", "Tests archetype " + c[1]));
+    var v = el("span", "verdict", c[2] === "Boundary" ? "Worse · boundary case" : c[2] + " at scale"); v.style.color = VERD[c[2]];
+    full.append(t, v);
+    card.append(full);
+    [["What carries over", c[3]], ["What breaks or has to change", c[4]]].forEach(function (r) {
+      var d = el("dl"); d.style.margin = "0"; d.append(el("dt", "", r[0]), el("dd", "", r[1])); card.append(d);
+    });
+    var hold = el("dl"); hold.style.margin = "0"; hold.style.gridColumn = "1 / -1";
+    hold.append(el("dt", "", "Holds if"), el("dd", "", c[5]));
+    card.append(hold);
+  }
+  C.forEach(function (c, i) {
+    var b = el("button", "ctx"); b.type = "button";
+    var dot = el("span", "v"); dot.style.background = VERD[c[2]];
+    b.append(dot, document.createTextNode(c[0]));
+    b.addEventListener("click", function () { showCtx(i); });
+    pick.append(b);
+  });
+  showCtx(0);
+
+  var L = [
+    { t: "06:30", p: "health", label: "health", what: "<b>Pod fitted</b> at the Northline hub during a battery swap", d: [["Who", "Northline hub technician"], ["For whom", "CDPH (add-on, request #0417)"], ["Collected", "Nothing yet"], ["Counts toward budget", "No"]] },
+    { t: "07:40", p: "health", label: "health", what: "<b>Delivery flight</b> takes a 3-minute detour over 6 blocks near the school", d: [["Who", "Northline, routine delivery"], ["For whom", "CDPH health layer"], ["Why", "Thin data on a burdened block (gap queue, protected share)"], ["Collected", "PM2.5, heat. Neighborhood grain."], ["Who looked", "CDPH Epidemiology"], ["Counts toward budget", "Yes, 1.0×"]] },
+    { t: "07:58", p: "health", label: "health", what: "<b>Verified reading</b> from the block's sensing crew · reply due Thursday", d: [["Who", "Community sensing crew, verified against an anchor site"], ["For whom", "CDPH"], ["What it triggers", "A duty to answer by a set date"], ["Status", "Open"]] },
+    { t: "10:06", p: "denied", label: "denied", what: "<b>Police request</b> to read this block's health layer · denied", d: [["Requested by", "CPD"], ["Why denied", "Enforcement is on the never-allowed list for health readings. Changing that needs the panels and a public vote."], ["Collected", "Nothing released"], ["Logged", "Yes, here and with the custodian board"]] },
+    { t: "11:42", p: "safety", label: "airspace safety", what: "<b>Delivery flight</b> · route, timing and noise class only", d: [["Who", "Northline"], ["For whom", "Shared airspace picture (Base 1)"], ["Collected", "Route, timing, noise class. Endpoint stripped."], ["Released", "After 24 hours"], ["Counts toward budget", "Yes, 1.0×"]] },
+    { t: "14:25", p: "emergency", label: "emergency", what: "<b>Emergency mode</b> declared by OEMC until 20:00 · heat", d: [["Who decides", "OEMC, as arbiter"], ["What changes", "Health flights first; extras over the block pause"], ["Ends", "20:00 today, then an audit"], ["Who looked", "CDPH, OEMC"]] },
+    { t: "16:10", p: "safety", label: "imagery", what: "<b>Camera flight</b> for bridge inspection · waiting for a person", d: [["Requested by", "Transportation (CDOT)"], ["Status", "Held. Camera flights always go to a person, and the panel decides on imagery here."], ["Counts toward budget", "1.5× if approved"]] }
+  ];
+  var F = [["all", "All"], ["health", "Health"], ["safety", "Safety and imagery"], ["emergency", "Emergency"], ["denied", "Denied"]];
+  var feed = document.getElementById("feed"), fl = document.getElementById("filters");
+  function renderFeed(f) {
+    fl.querySelectorAll(".ctx").forEach(function (b) { b.setAttribute("aria-pressed", b.dataset.f === f ? "true" : "false"); });
+    feed.innerHTML = "";
+    L.filter(function (e) { return f === "all" || e.p === f; }).forEach(function (e) {
+      var det = el("details", "entry");
+      var s = el("summary");
+      var w = el("span", "what"); w.innerHTML = e.what;
+      s.append(el("span", "time", e.t), w, el("span", "pur " + e.p, e.label));
+      var dl = el("dl");
+      e.d.forEach(function (r) { dl.append(el("dt", "", r[0]), el("dd", "", r[1])); });
+      det.append(s, dl);
+      feed.append(det);
+    });
+    var first = feed.querySelector("details"); if (first && f === "all") first.open = false;
+  }
+  F.forEach(function (f) {
+    var b = el("button", "ctx", f[1]); b.type = "button"; b.dataset.f = f[0];
+    b.addEventListener("click", function () { renderFeed(f[0]); });
+    fl.append(b);
+  });
+  renderFeed("all");
+  var denied = feed.querySelectorAll("details")[3]; if (denied) denied.open = true;
+
+  document.getElementById("lower").addEventListener("click", function () { document.getElementById("lowermsg").hidden = false; });
+})();
+</script>
+
+</body></html>

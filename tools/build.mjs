@@ -8,12 +8,16 @@ import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
+import { PDFDocument } from 'pdf-lib';
+import { readFile, writeFile } from 'node:fs/promises';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const OUT = resolve(ROOT, '_site');
 const pdfOnly = process.argv.includes('--pdf-only');
 const SITE_URL = process.env.SITE_URL || '';
-const COPY = ['index.html', 'assets', 'img', 'prototypes', 'report', '.nojekyll'];
+const COPY = ['index.html', 'archetypes.html', 'assets', 'img', 'prototypes', 'report', '.nojekyll'];
+// Pages in the PDF, in order. The in-depth page follows the story as an appendix.
+const PAGES = [['index.html', 'Shared Airspace Commons'], ['archetypes.html', 'The archetypes in depth']];
 
 async function copySite() {
   await rm(OUT, { recursive: true, force: true });
@@ -21,16 +25,17 @@ async function copySite() {
   for (const p of COPY) if (existsSync(resolve(ROOT, p))) await cp(resolve(ROOT, p), resolve(OUT, p), { recursive: true });
 }
 
-async function makePdf(srcDir, outFile) {
-  const browser = await chromium.launch();
+async function renderPage(browser, srcDir, file, title) {
   const page = await browser.newPage({ viewport: { width: 1100, height: 1400 } });
   const errors = [];
-  page.on('pageerror', e => errors.push(String(e)));
-  await page.goto(pathToFileURL(resolve(srcDir, 'index.html')).href, { waitUntil: 'load' });
+  page.on('pageerror', e => errors.push(file + ': ' + String(e)));
+  await page.goto(pathToFileURL(resolve(srcDir, file)).href, { waitUntil: 'load' });
   await page.evaluate(url => {
     if (url) {
       document.querySelector('meta[name="site-url"]').content = url;
       document.querySelectorAll('a.site-url').forEach(a => { const h = a.dataset.hash || ''; a.href = url + h; a.textContent = (url + h).replace(/^https?:\/\//, ''); });
+      // Links between pages point at the live site in the PDF.
+      document.querySelectorAll('a[href]').forEach(a => { const h = a.getAttribute('href'); if (!/^(https?:|#|mailto:)/.test(h)) a.href = url + h; });
     }
     document.querySelectorAll('img[loading]').forEach(i => (i.loading = 'eager'));
     window.__prepPrint && window.__prepPrint();
@@ -40,13 +45,30 @@ async function makePdf(srcDir, outFile) {
   await page.waitForTimeout(600);
   await page.emulateMedia({ media: 'print' });
   const live = SITE_URL ? ' · live version: ' + SITE_URL.replace(/^https?:\/\//, '') : '';
-  await page.pdf({
-    path: outFile, format: 'Letter', printBackground: true, displayHeaderFooter: true,
+  const bytes = await page.pdf({
+    format: 'Letter', printBackground: true, displayHeaderFooter: true,
     headerTemplate: '<div></div>',
-    footerTemplate: `<div style="width:100%;font:7.5pt Helvetica,Arial,sans-serif;color:#4E5D6C;padding:0 12mm;display:flex;justify-content:space-between"><span>Shared Airspace Commons · hypothetical class project${live}</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>`,
+    footerTemplate: `<div style="width:100%;font:7.5pt Helvetica,Arial,sans-serif;color:#4E5D6C;padding:0 12mm;display:flex;justify-content:space-between"><span>${title} · hypothetical class project${live}</span><span><span class="pageNumber"></span> / <span class="totalPages"></span></span></div>`,
     margin: { top: '13mm', bottom: '16mm', left: '12mm', right: '12mm' },
   });
+  await page.close();
+  return { bytes, errors };
+}
+
+async function makePdf(srcDir, outFile) {
+  const browser = await chromium.launch();
+  const merged = await PDFDocument.create();
+  const errors = [];
+  for (const [file, title] of PAGES) {
+    if (!existsSync(resolve(srcDir, file))) continue;
+    const r = await renderPage(browser, srcDir, file, title);
+    errors.push(...r.errors);
+    const doc = await PDFDocument.load(r.bytes);
+    (await merged.copyPages(doc, doc.getPageIndices())).forEach(p => merged.addPage(p));
+  }
   await browser.close();
+  merged.setTitle('Shared Airspace Commons');
+  await writeFile(outFile, await merged.save());
   if (errors.length) { console.error('Page errors:\n' + errors.join('\n')); process.exitCode = 1; }
   console.log('PDF written to', outFile);
 }

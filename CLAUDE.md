@@ -38,16 +38,27 @@ Type is Public Sans, self-hosted in `assets/fonts/`. White backgrounds; no beige
 ## Structure
 
 ```
-index.html              the whole story on one page (sections: why, method, commons, situations, anatomy, impacts, prototypes, budget, doors, open, glossary)
+index.html              the story: why, method, commons, situations, anatomy, impacts, prototypes (in use), budget, grow, doors, open (conditions), glossary
+archetypes.html         "The archetypes in depth": capital reading, trades, checks, phases, next contexts, one block's ledger
 assets/css/site.css     all styles, including @media print for the PDF
 assets/js/main.js       lightbox, archetype tabs, action-situation chapters, AOI explorer (window.aoiShow)
 assets/js/budget.js     mock budget data and chart (edit numbers here)
 assets/js/glossary.js   glossary data, search, print prep (window.__prepPrint), site-url links
+assets/js/indepth-data.js  content for archetypes.html (A archetypes, P phases, C contexts, L ledger)
+assets/js/indepth.js    renders archetypes.html; deep links #a1 #a2 #a3 #grow #contexts #ledger
 img/                    boards, diagrams, scene images (AS* = action situations, R*/O1/PT-TERMS = prototype boards)
 prototypes/             clickable prototypes hosted with the site
-tools/build.mjs         copies the site to _site/ and renders report/Shared_Airspace_Commons.pdf
+tools/build.mjs         copies the site to _site/ and renders one PDF: the story, then the in-depth page as an appendix
+source/                 original material kept for reference; not published
 .github/workflows/      builds and publishes to GitHub Pages on push to main
 ```
+
+## Progressive disclosure
+
+The homepage is the argument for outsiders; `archetypes.html` holds course-level detail for readers who know the frameworks. Rules:
+- Nothing on the homepage depends on the in-depth page. Every link into it says what the reader will find.
+- Links into it sit where the question arises: the method callout, each archetype tab ("Archetype N in depth"), "How it grows", and the ledger link under the resident boards. The nav has one "In depth" item.
+- The in-depth page opens by saying who it's for and always offers the way back to the story.
 
 ## Commands
 
@@ -58,8 +69,7 @@ tools/build.mjs         copies the site to _site/ and renders report/Shared_Airs
 
 ## Backlog
 
-1. Split the deeper sections into their own pages (anatomy explorer, budget, prototypes, glossary) with a shared header and nav; keep the homepage as the story.
-2. PDF formatting: a real cover, page breaks before each Part, a shorter presentation edition.
-3. Link real prototypes from the prototype boards (Figma or pages in `prototypes/`).
-4. Bring in the team's "Airspace Commons" artifact under `prototypes/` and link it from the site.
-5. Narrative edits from the team.
+1. PDF formatting: a real cover, page breaks before each Part, tighter appendix pages, a shorter presentation edition.
+2. Link real prototypes from the prototype boards (Figma or pages in `prototypes/`).
+3. Narrative edits from the team.
+4. Consider moving other deep material (the full anatomy explorer, the impacts table) behind the same disclosure pattern if the homepage feels long.

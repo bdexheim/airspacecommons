@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The archetypes in depth · Shared Airspace Commons</title>
+<meta name="description" content="The course-level detail behind the Shared Airspace Commons: what each archetype gains and spends across eight forms of capital, the trades, where each one breaks, how the commons grows, and one block's public ledger.">
+<meta name="site-url" content="">
+<meta name="theme-color" content="#0B2341">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body class="deep">
+<div class="notice"><div class="wrap"><b>Hypothetical class project.</b> Student work for Complex Systems Innovation at Illinois Tech. It is not affiliated with, endorsed by or produced by the City of Chicago or the Chicago Department of Public Health. Programs, budgets, names and numbers in the mock materials are illustrative.</div></div>
+
+<header class="mast mast-sub"><div class="wrap">
+  <div>
+    <a class="crumb noprint" href="index.html#commons">← Shared Airspace Commons</a>
+    <div class="kicker print-only-inline">Shared Airspace Commons · appendix</div>
+    <h1>The archetypes in depth</h1>
+    <p>The course-level reading behind the story: what each archetype gains and spends across eight forms of capital, the trades we said out loud, what keeps each one in check and where it breaks. Then how the commons grows, where else it could go, and one block's public ledger.</p>
+  </div>
+  <div class="mast-note">
+    <b>Who this page is for</b>
+    <p>Readers who know the course frameworks (SCMM, capital reading, expanding). Everyone else can stay with <a href="index.html">the main story</a>; nothing here is needed to follow it.</p>
+  </div>
+</div></header>
+<div class="stripes"></div>
+
+<nav class="toc" aria-label="On this page"><div class="wrap">
+  <a href="#archetypes">The three archetypes</a><a href="#grow">How it grows</a><a href="#contexts">Next contexts</a><a href="#ledger">One block's ledger</a><a class="back" href="index.html">← Back to the story</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="archetypes">
+  <div class="label">Archetyping · Reflecting</div>
+  <h2>Who gives what, who gets what, and what it costs</h2>
+  <p class="lead">Each archetype is one relationship. Pick one to see its promise, what each side gives and gets, CDPH's part, its flow of capital, the trades it forces, and where it holds or breaks.</p>
+  <div class="tabs" role="tablist" aria-label="Archetypes">
+    <button class="tab" role="tab" id="tab-a1" data-k="a1" aria-controls="arch-a1" aria-selected="true"><i style="background:var(--op)"></i>1 · Flights pay their way</button>
+    <button class="tab" role="tab" id="tab-a2" data-k="a2" aria-controls="arch-a2" aria-selected="false"><i style="background:var(--ag)"></i>2 · One sky, many readers</button>
+    <button class="tab" role="tab" id="tab-a3" data-k="a3" aria-controls="arch-a3" aria-selected="false"><i style="background:var(--res)"></i>3 · The sky answers to the street</button>
+  </div>
+  <div id="archPanels"></div>
+</section>
+
+<section id="grow">
+  <div class="label">Expanding · in the airspace</div>
+  <h2>Three phases, each one earned</h2>
+  <p class="lead">Governance is the constant: purpose labels, the ledger, the custodian board and an owner hold in every phase. The commons grows in the airspace first, and each phase has to pass a gate before the next one starts. Gates are conditions, not dates.</p>
+  <div class="seg" role="radiogroup" aria-label="Phase" id="phaseSeg"></div>
+  <div id="phasePanels"></div>
+</section>
+
+<section id="contexts">
+  <div class="label">Expanding · beyond the airspace</div>
+  <h2>Where else could the pattern go?</h2>
+  <p class="lead">We pushed each archetype into nine other contexts to find its edge. Pick one to see what carries over, what breaks, and the condition it would need to hold.</p>
+  <div class="ctx-pick" id="ctxPick" role="tablist" aria-label="Contexts"></div>
+  <p class="small muted vlegend noprint"><span class="vd good"></span> Better at scale <span class="vd mid"></span> Depends on terms <span class="vd bad"></span> Worse at scale, or a boundary</p>
+  <div id="ctxPanels"></div>
+</section>
+
+<section id="ledger">
+  <div class="label">Archetype 3 in practice</div>
+  <h2>Nothing overhead goes unexplained</h2>
+  <p class="lead">The public ledger for one block, on one example day. Anyone can see who flew over, when, for whom and why, what was collected, and who looked at it. What the gate refuses shows up too. It's the clickable side of the <a href="index.html#prototypes">monthly block card</a>.</p>
+  <div class="ledger">
+    <aside class="card block" aria-label="Block summary">
+      <div class="who res">Example · Block B-8405</div>
+      <h3>S. Kolin Ave, 4300–4400, near the school</h3>
+      <div class="meter-row"><span>Share of the sky used this season</span><b>88%</b></div>
+      <div class="meter" role="img" aria-label="88% used; review line at 90%"><i style="width:88%"></i><span class="line" style="left:90%"></span></div>
+      <p class="small">Just under the review line at 90%. Past it, new extras over this block pause until the city reviews; regular deliveries keep flying.</p>
+      <button class="bbtn noprint" type="button" id="lower">Ask for a lower share</button>
+      <p class="small" id="lowerMsg" hidden>In the full design this goes to the neighborhood panel, and the custodian board takes it up at its next meeting.</p>
+      <p class="small muted">Fictional block, operator ("Northline") and figures.</p>
+    </aside>
+    <div>
+      <div class="filters noprint" id="filters" role="group" aria-label="Filter by purpose"></div>
+      <div class="feed" id="feed"></div>
+    </div>
+  </div>
+</section>
+
+<section id="back" class="noprint">
+  <div class="card nextcard">
+    <div>
+      <div class="label">Back to the story</div>
+      <h3>See it working in six action situations</h3>
+      <p>The main story follows the commons through a year, from the first launch to everything going quiet, and shows what each moment activates.</p>
+    </div>
+    <div class="nextlinks">
+      <a class="bbtn" href="index.html#situations">Action situations →</a>
+      <a class="bbtn ghostb" href="index.html#anatomy">Anatomy of Infrastructures →</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <p>Shared Airspace Commons · Complex Systems Innovation, Illinois Tech · Brian, Ming, Pratyusha. Hypothetical class work; not affiliated with the City of Chicago or CDPH. Built from the team's archetyping, reflecting and expanding work. Northline, block B-8405 and every figure in the ledger are fictional.</p>
+</div></footer>
+
+<script src="assets/js/indepth-data.js" defer></script>
+<script src="assets/js/indepth.js" defer></script>
+</body>
+</html>
