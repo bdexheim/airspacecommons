@@ -32,6 +32,9 @@ Defined as CSS variables at the top of `assets/css/site.css`.
 | agencies | `#5B6B7A` | archetype 2 |
 | residents | `#2B5FAE` | archetype 3 |
 | CDPH | `#D86018` | CDPH's own use |
+| fire | `#6B3FA0` | fire and emergency (block map) |
+| ecology | `#8C7A12` | the flyway, the ecology steward |
+| collision | `#FFD23F` | collision markers on the block map only |
 
 Type is Public Sans, self-hosted in `assets/fonts/`. White backgrounds; no beige or tan.
 
@@ -43,6 +46,7 @@ archetypes.html         "The archetypes in depth": capital reading, trades, chec
 assets/css/site.css     all styles, including @media print for the PDF
 assets/js/main.js       lightbox, archetype tabs, action-situation chapters, AOI explorer (window.aoiShow)
 assets/js/budget.js     mock budget data and chart (edit numbers here)
+assets/js/skymap.js     "The sky over one block": readers and collisions (#skyReaders, Method) and the six-moment map (#skyYear, Action situations)
 assets/js/glossary.js   glossary data, search, print prep (window.__prepPrint), site-url links
 assets/js/indepth-data.js  content for archetypes.html (A archetypes, P phases, C contexts, L ledger)
 assets/js/indepth.js    renders archetypes.html; deep links #a1 #a2 #a3 #grow #contexts #ledger

@@ -104,7 +104,9 @@
   <h2>From one agency's tool to a shared commons</h2>
   <p class="lead">We started with a detailed picture of how CDPH could use the airspace, and four bundles built around it. But when we abstracted it, we only swapped CDPH for "your agency." The system underneath stayed the same, insinuating duplicated effort and no coordination between agencies.</p>
   <p>So we asked a different question: is CDPH really the only public agency that would benefit from the urban airspace as a sensing network? Six other actors read our airspace, and the parts we first called "shared" were exactly where they collided.</p>
-  <div class="grid g3" style="margin-top:14px">
+  <div class="sky" id="skyReaders"></div>
+  <details class="more sky-table"><summary>Every collision, and the action situation that settles it</summary><div class="inner"><div class="tscroll"><table><thead><tr><th>Collision</th><th>Readers</th><th>Settled in</th></tr></thead><tbody id="skyClashTable"></tbody></table></div><p class="caption">Six of the seven collisions are settled by an action situation. The airport ceiling over a burdened edge is still open.</p></div></details>
+  <div class="grid g3 sky-fallback" style="margin-top:14px">
     <div class="card"><h4>Fire and emergency</h4><p>Might need the same drones as CDPH during similar times of emergency.</p></div>
     <div class="card"><h4>Transportation</h4><p>Wants cameras on drones for bridges, streets and roofs, which could heighten surveillance concerns.</p></div>
     <div class="card"><h4>Aviation</h4><p>Wants fewer drones near airports, next to some of our most burdened blocks.</p></div>
@@ -228,6 +230,8 @@
   <div class="label">Action situations</div>
   <h2>A year in the commons, in six moments</h2>
   <p class="lead">Follow the commons from the morning the first hub opens to the day every drone is grounded. Each action situation is one instant where several archetypes meet, with prototypes working on the street and behind it.</p>
+  <div class="sky" id="skyYear"></div>
+  <p class="caption noprint">Pick a pin to see where on the block each moment happens, then read it below.</p>
   <nav class="steps" aria-label="Action situations"><a href="#sit1"><b>1</b><span>The first launch</span><small>Set terms</small></a><a href="#sit2"><b>2</b><span>Two readers, one flight</span><small>Collect</small></a><a href="#sit3"><b>3</b><span>The list re-sorts</span><small>Act</small></a><a href="#sit4"><b>4</b><span>The handoff</span><small>Allocate</small></a><a href="#sit5"><b>5</b><span>No and yes</span><small>Govern</small></a><a href="#sit6"><b>6</b><span>Everything goes quiet</span><small>Continue</small></a></nav>
 
   <article class="chap" id="sit1">
@@ -248,7 +252,7 @@
       <div class="fnl"><span class="num">2</span><span>Action situation 2 · Collect</span></div>
       <div class="tm">11:42 am</div>
       <h3>Two readers, one flight</h3>
-      <p>One drone, one city pod, three readers: air quality for CDPH, bridge photos for CDOT and a migration count for the ecology steward. The camera stays off over homes. Because it&#x27;s aboard, the flight counts extra and takes the block to its review line.</p>
+      <p>One drone, one city pod, two readers: air quality for CDPH and bridge photos for CDOT. The camera stays off over homes, and the route bends around the spring flyway the ecology steward asked to keep clear. Because the camera is aboard, the flight counts double and takes the block to its review line.</p>
       <div class="meet"><span>Archetypes meeting</span><span class="dot op">1</span><span class="dot ag">2</span><span class="dot res">3</span></div>
       <div class="trc">Payload standard <span class="ar">→</span> <b>Shared capacity</b> <span class="ar">→</span> Lower cost per agency <span class="ar">→</span> Act before harm builds</div>
       <div class="acts"><a class="pri" href="#anatomy" data-as="AS1">See what it activates</a><a href="img/AS2_Two_Readers_annotated.jpg" data-board="img/AS2_Two_Readers_annotated.jpg">Annotated board</a></div>
@@ -554,6 +558,7 @@
     <li><span class="tag mid">Defined</span>Base 1 asks only what Remote ID lacks: stored logs, planned routes, operator purpose, noise class.</li>
     <li><span class="tag open">Open</span>Who arbitrates routine conflicts (OEMC?), and whether the city runs its own rules feed.</li>
     <li><span class="tag open">Open</span>How panels are seated, and whether the cap reduces service in thin areas.</li>
+    <li><span class="tag open">Open</span>The airport ceiling over a burdened edge. No action situation settles it yet: the blocks CDPH most needs to read sit where the airport wants the fewest flights, so ground sites have to stand in.</li>
   </ul>
 </section>
 
@@ -604,5 +609,6 @@
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/budget.js" defer></script>
 <script src="assets/js/glossary.js" defer></script>
+<script src="assets/js/skymap.js" defer></script>
 </body>
 </html>
