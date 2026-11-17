@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" width="1000" height="900" font-family="'Public Sans', Helvetica, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+<title>The sky answers to the street</title>
+<rect id="background" width="1000" height="900" fill="#FFFFFF"/>
+<defs><marker id="ar-q" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C5CED8"/></marker><marker id="ar-a1" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#007A65"/></marker><marker id="ar-a2" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#5B6B7A"/></marker><marker id="ar-a3" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#2B5FAE"/></marker><marker id="ar-r" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#C8102E"/></marker><marker id="ar-c" viewBox="0 0 10 10" refX="8.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#D86018"/></marker></defs>
+<text x="40.0" y="46.0" font-size="14" font-weight="700" fill="#2B5FAE" text-anchor="start">ARCHETYPE 3 · CITY ↔ RESIDENTS</text>
+<text x="40.0" y="86.0" font-size="34" font-weight="700" fill="#0B2341" text-anchor="start">The sky answers to the street</text>
+<text x="40.0" y="118.0" font-size="17" font-weight="400" fill="#4E5D6C" text-anchor="start">The system can add agencies and flights without sliding into surveillance, because the people under</text>
+<text x="40.0" y="141.0" font-size="17" font-weight="400" fill="#4E5D6C" text-anchor="start">it can see it, question it and say no.</text>
+<text x="40.0" y="205.0" font-size="12.5" font-weight="700" fill="#4E5D6C" text-anchor="start">WANT TO READ OR FLY</text>
+<rect x="107.9" y="222" width="84.2" height="28" rx="14" fill="none" stroke="#5B6B7A" stroke-width="1.5"/>
+<text x="150.0" y="241.0" font-size="13" font-weight="600" fill="#0B2341" text-anchor="middle">Agencies</text>
+<rect x="284.2" y="222" width="91.5" height="28" rx="14" fill="none" stroke="#5B6B7A" stroke-width="1.5"/>
+<text x="330.0" y="241.0" font-size="13" font-weight="600" fill="#0B2341" text-anchor="middle">Operators</text>
+<rect x="467.9" y="222" width="84.2" height="28" rx="14" fill="none" stroke="#5B6B7A" stroke-width="1.5"/>
+<text x="510.0" y="241.0" font-size="13" font-weight="600" fill="#0B2341" text-anchor="middle">New uses</text>
+<rect x="40" y="300" width="640" height="16" rx="4" fill="#2B5FAE"/>
+<rect x="132" y="298" width="36" height="20" fill="#FFFFFF"/>
+<line x1="150.0" y1="252.0" x2="150.0" y2="348.0" stroke="#2B5FAE" stroke-width="1.8" marker-end="url(#ar-a3)"/>
+<rect x="312" y="298" width="36" height="20" fill="#FFFFFF"/>
+<line x1="330.0" y1="252.0" x2="330.0" y2="348.0" stroke="#2B5FAE" stroke-width="1.8" marker-end="url(#ar-a3)"/>
+<line x1="510.0" y1="252.0" x2="510.0" y2="294.0" stroke="#C8102E" stroke-width="1.8" marker-end="url(#ar-r)"/>
+<g stroke="#C8102E" stroke-width="3"><line x1="498" y1="270" x2="522" y2="294"/><line x1="522" y1="270" x2="498" y2="294"/></g>
+<text x="534.0" y="286.0" font-size="12.5" font-weight="600" fill="#C8102E" text-anchor="start" font-style="italic">needs a public vote</text>
+<text x="40.0" y="340.0" font-size="12.5" font-weight="700" fill="#2B5FAE" text-anchor="start">THE GATE</text>
+<rect x="40" y="352" width="310" height="216" rx="10" fill="#FFFFFF" stroke="#2B5FAE" stroke-width="1.6"/>
+<text x="54.0" y="377.0" font-size="11.5" font-weight="700" fill="#2B5FAE" text-anchor="start">PT-PURPOSE</text>
+<text x="54.0" y="396.0" font-size="16" font-weight="700" fill="#0B2341" text-anchor="start">Every reading remembers why</text>
+<text x="54.0" y="416.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">A purpose label on every reading, rules</text>
+<text x="54.0" y="433.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">for who sees which layer, a</text>
+<text x="54.0" y="450.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">never-allowed list, and a public vote to</text>
+<text x="54.0" y="467.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">add a use.</text>
+<rect x="54.0" y="488.0" width="196.2" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="152.1" y="502.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">R-PURPOSE labels and access</text>
+<rect x="54.0" y="514.0" width="156.6" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="132.3" y="528.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">R-NEWUSE adding a use</text>
+<rect x="54.0" y="540.0" width="169.8" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="138.9" y="554.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">R-CARRIER who may carry</text>
+<rect x="370" y="352" width="310" height="199" rx="10" fill="#FFFFFF" stroke="#2B5FAE" stroke-width="1.6"/>
+<text x="384.0" y="377.0" font-size="11.5" font-weight="700" fill="#2B5FAE" text-anchor="start">PT-CUSTODIAN</text>
+<text x="384.0" y="396.0" font-size="16" font-weight="700" fill="#0B2341" text-anchor="start">Residents decide on uses</text>
+<text x="384.0" y="416.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">An independent board with resident seats</text>
+<text x="384.0" y="433.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">holds the data. Neighborhood panels say</text>
+<text x="384.0" y="450.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">yes or no to cameras and enforcement.</text>
+<rect x="384.0" y="471.0" width="169.8" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="468.9" y="485.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">P-TRUST custodian board</text>
+<rect x="384.0" y="497.0" width="196.2" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="482.1" y="511.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">P-PANEL neighborhood panels</text>
+<rect x="384.0" y="523.0" width="189.6" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="478.8" y="537.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">R-BURDEF burden definition</text>
+<rect x="40" y="630" width="640" height="196" rx="12" fill="#2B5FAE" fill-opacity="0.1" stroke="#2B5FAE" stroke-width="1"/>
+<text x="60.0" y="656.0" font-size="12.5" font-weight="700" fill="#2B5FAE" text-anchor="start">THE PEOPLE UNDER THE FLIGHTS</text>
+<rect x="60" y="670" width="290" height="130" rx="10" fill="#FFFFFF" stroke="#2B5FAE" stroke-width="1.6"/>
+<circle cx="334" cy="686" r="6" fill="#D86018"/>
+<text x="74.0" y="695.0" font-size="11.5" font-weight="700" fill="#2B5FAE" text-anchor="start">PT-CREWS</text>
+<text x="74.0" y="714.0" font-size="16" font-weight="700" fill="#0B2341" text-anchor="start">Residents measure</text>
+<text x="74.0" y="734.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">Local crews fly or carry sensors over</text>
+<text x="74.0" y="751.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">their own blocks.</text>
+<rect x="74.0" y="772.0" width="97.2" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="122.6" y="786.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">P-CREW crews</text>
+<rect x="177.2" y="772.0" width="84.0" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="219.2" y="786.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">A-POD pods</text>
+<rect x="267.2" y="772.0" width="51.0" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="292.7" y="786.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">P-CHW</text>
+<rect x="370" y="670" width="290" height="156" rx="10" fill="#FFFFFF" stroke="#2B5FAE" stroke-width="1.6"/>
+<circle cx="644" cy="686" r="6" fill="#D86018"/>
+<text x="384.0" y="695.0" font-size="11.5" font-weight="700" fill="#2B5FAE" text-anchor="start">PT-VERIFIED</text>
+<text x="384.0" y="714.0" font-size="16" font-weight="700" fill="#0B2341" text-anchor="start">A reading with standing</text>
+<text x="384.0" y="734.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">A verified reading obliges an answer</text>
+<text x="384.0" y="751.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">by a set date.</text>
+<rect x="384.0" y="772.0" width="123.6" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="445.8" y="786.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">D-REPORT channel</text>
+<rect x="384.0" y="798.0" width="143.4" height="20" rx="10" fill="none" stroke="#C5CED8" stroke-width="1"/>
+<text x="455.7" y="812.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">R-INSPQ inspections</text>
+<line x1="200.0" y1="626.0" x2="200.0" y2="578.0" stroke="#2B5FAE" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ar-a3)"/>
+<text x="210.0" y="612.0" font-size="12.5" font-weight="400" fill="#4E5D6C" text-anchor="start" font-style="italic">readings</text>
+<line x1="515.0" y1="626.0" x2="515.0" y2="578.0" stroke="#2B5FAE" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#ar-a3)"/>
+<text x="525.0" y="612.0" font-size="12.5" font-weight="400" fill="#4E5D6C" text-anchor="start" font-style="italic">decisions, challenges</text>
+<rect x="710" y="200" width="250" height="626" rx="12" fill="#FFFFFF" stroke="#2B5FAE" stroke-width="1.8"/>
+<text x="730.0" y="228.0" font-size="11.5" font-weight="700" fill="#2B5FAE" text-anchor="start">PT-LEDGER</text>
+<text x="730.0" y="252.0" font-size="18" font-weight="700" fill="#0B2341" text-anchor="start">The window</text>
+<text x="730.0" y="276.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">Anyone can see who flew over</text>
+<text x="730.0" y="293.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">their block, when, for whom</text>
+<text x="730.0" y="310.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">and why, what was collected,</text>
+<text x="730.0" y="327.0" font-size="13.5" font-weight="400" fill="#4E5D6C" text-anchor="start">and who looked at it.</text>
+<rect x="730" y="400" width="210" height="42" rx="6" fill="none" stroke="#C5CED8"/>
+<text x="742.0" y="417.0" font-size="12" font-weight="500" fill="#0B2341" text-anchor="start">11:42 delivery flight ·</text>
+<text x="742.0" y="432.0" font-size="12" font-weight="500" fill="#0B2341" text-anchor="start">health, bridge</text>
+<rect x="730" y="454" width="210" height="42" rx="6" fill="none" stroke="#C5CED8"/>
+<text x="742.0" y="471.0" font-size="12" font-weight="500" fill="#0B2341" text-anchor="start">2:25 emergency mode until 8 pm</text>
+<rect x="730" y="508" width="210" height="42" rx="6" fill="none" stroke="#C5CED8"/>
+<text x="742.0" y="525.0" font-size="12" font-weight="500" fill="#0B2341" text-anchor="start">7:58 verified reading · reply</text>
+<text x="742.0" y="540.0" font-size="12" font-weight="500" fill="#0B2341" text-anchor="start">by Thu</text>
+<rect x="730" y="562" width="210" height="42" rx="6" fill="none" stroke="#C5CED8"/>
+<text x="742.0" y="579.0" font-size="12" font-weight="500" fill="#0B2341" text-anchor="start">10:06 police request · denied</text>
+<rect x="730" y="632" width="117" height="22" rx="11" fill="none" stroke="#C5CED8"/>
+<text x="788.5" y="647.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">D-RECORD ledger</text>
+<rect x="730" y="660" width="143" height="22" rx="11" fill="none" stroke="#C5CED8"/>
+<text x="801.7" y="675.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">A-SIGN public signs</text>
+<rect x="730" y="688" width="124" height="22" rx="11" fill="none" stroke="#C5CED8"/>
+<text x="791.8" y="703.0" font-size="11.5" font-weight="500" fill="#4E5D6C" text-anchor="middle">D-LINK Remote ID</text>
+<text x="730.0" y="740.0" font-size="13" font-weight="600" fill="#0B2341" text-anchor="start">Everything that passes the gate</text>
+<text x="730.0" y="757.0" font-size="13" font-weight="600" fill="#0B2341" text-anchor="start">shows up here, and so does</text>
+<text x="730.0" y="774.0" font-size="13" font-weight="600" fill="#0B2341" text-anchor="start">everything that doesn&#x27;t.</text>
+<line x1="40" y1="846" x2="960" y2="846" stroke="#C5CED8" stroke-width="1" stroke-dasharray="4 5"/>
+<text x="40.0" y="872.0" font-size="14" font-weight="400" fill="#4E5D6C" text-anchor="start" font-style="italic">Checked by: the agencies (health readings stay advisory, so a refusal doesn&#x27;t leave a block unmeasured) and operators&#x27; data</text>
+<text x="40.0" y="890.0" font-size="14" font-weight="400" fill="#4E5D6C" text-anchor="start" font-style="italic">(ground and hub sensors measure without flying over anyone). Orange dot = CDPH&#x27;s own use.</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTozN2NjYTljOS1hOTU2LTRmMDItOWE0ZC0xMDNkN2FhMmE4MTUAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaCmHVfHmbS+A/SJQ0f+gFe8AAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDo0MzFiZTNhNS05ZGQxLTQxZDUtYjNkYy1iMjUyMjRiNmRkNzhscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoyePSM5xuvJZlHZU4mADUDQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggqUA8MGs6EwcPhaVK7KFBo/drKexoJZNCbkx5Ah+ST7SkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaMb63SULMZoDUjdLuCH5LNAAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIHoaCjLwp04Ebt0G2d2w6Kbtw35ubrStSwRhqiafPPLXZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GTVoZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjM3Y2NhOWM5LWE5NTYtNGYwMi05YTRkLTEwM2Q3YWEyYTgxNS9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmY0YjY0NjJmLWE5Y2ItNGJkNy04Y2RhLTEyNGU3Yjk4NzAzM3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCCpQDwwazoTBw+FpUrsoUGj92sp7Gglk0JuTHkCH5JPtKJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggTBUTXDDqq5pWU2zcFnHsHkMsivsl60k3mzaz4quVAEGiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggJW5mYUL/gwejhvYvEf4iKNfObnwVESVT4kvlpZFJOZt0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQBGrd58XfHpQHFqSquCLJNp7ZzdV/g8gFpTElaFDiKrFszWBgSX1wBe3Ycsb4/QHYvWyY/D7mZbOx0RFc/BnFEg=</c2pa:manifest></metadata></svg>

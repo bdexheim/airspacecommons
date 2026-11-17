@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shared Airspace Commons</title>
+<meta name="description" content="A student proposal for treating Chicago's low airspace as a shared commons: operators pay their way in data, agencies read from one picture, and residents can see, question and refuse. Hypothetical class work, not affiliated with the City of Chicago or CDPH.">
+<meta name="site-url" content="">
+<meta property="og:title" content="Shared Airspace Commons">
+<meta property="og:description" content="A student proposal for Chicago's low airspace. Hypothetical class work for Complex Systems Innovation, Illinois Tech.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/AS3_List_Resorts_clean.jpg">
+<meta name="theme-color" content="#0B2341">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/public-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<div class="notice"><div class="wrap"><b>Hypothetical class project.</b> Student work for Complex Systems Innovation at Illinois Tech. It is not affiliated with, endorsed by or produced by the City of Chicago or the Chicago Department of Public Health. Programs, budgets, names and numbers in the mock materials are illustrative.</div></div>
+
+<header class="mast"><div class="wrap">
+  <div>
+    <div class="kicker">Complex Systems Innovation · Brian, Ming, Pratyusha</div>
+    <h1>Shared Airspace Commons</h1>
+    <p>Private operators already collect huge amounts of data as they move through the city, and most of it never reaches the public agencies that could use it to deliver better, more efficient services. Drones are next. The urban airspace is about to become Chicago's newest sensing network, and the city has a chance to redefine that relationship before the terms get set for it. We propose treating the sky as one shared commons: operators pay their way in data, not money, many agencies read from one picture, and the people under the flights can see them, question them and say no. The Chicago Department of Public Health (CDPH) moves in first.</p>
+  </div>
+  <div class="links">
+    <a class="btn" href="#situations"><span>A year in the commons</span><span>six action situations ↓</span></a>
+    <a class="btn" href="#anatomy"><span>Anatomy of Infrastructures</span><span>what each one activates ↓</span></a>
+    <a class="btn ghost noprint" href="report/Shared_Airspace_Commons.pdf" target="_blank" rel="noopener"><span>Download the PDF</span><span>printable report ↓</span></a>
+  </div>
+  <p class="print-only plink">Live, interactive version: <a class="site-url" href="./">the project website</a><br>The live page has the zoomable boards, the interactive Anatomy of Infrastructures, the budget phase toggle and a searchable glossary.</p>
+</div></header>
+<div class="stripes"></div>
+
+<nav class="toc" aria-label="Sections"><div class="wrap">
+  <a href="#why">Why now</a><a href="#method">How we got here</a><a href="#commons">The commons</a><a href="#situations">Action situations</a><a href="#anatomy">Anatomy</a><a href="#impacts">Unintended impacts</a><a href="#prototypes">In use</a><a href="#budget">Budget</a><a href="#doors">Audiences</a><a href="#open">Still open</a><a href="#glossary">Glossary</a>
+</div></nav>
+
+<main class="wrap">
+
+<section id="why">
+  <div class="label">Part I · Why now</div>
+  <h2>Doing more with less, before the sky fills up</h2>
+  <p class="lead">Governments love to talk about increasing efficiency, but in many cases they default back to taxing more and more while services get more expensive. Chicago is in that spot right now, and drones are about to fill the sky over its most burdened blocks. How might the urban airspace actually help CDPH and other agencies build preventive capacity and do more with less?</p>
+
+  <div class="sub">
+    <h3><span class="num">1</span>The squeeze</h3>
+    <p>The city is short on money and CDPH is short on people. Most of what CDPH spends isn't city money at all.</p>
+    <div class="grid g4" style="margin-top:12px">
+      <div class="card stat"><div class="big">$882M</div><div class="what">City budget gap projected for 2027, after closing $1.2B for 2026</div><div class="src"><a href="https://www.fox32chicago.com/news/chicago-mayor-brandon-johnson-faces-882m-budget-gap-heading-2027" target="_blank" rel="noopener">Fox 32, Sept 3, 2026</a> · <a href="https://www.civicfed.org/chicagos-fy2026-adopted-budget" target="_blank" rel="noopener">Civic Federation</a></div></div>
+      <div class="card stat"><div class="big">11%</div><div class="what">of CDPH's ~$700M budget came from city taxes; 124 positions cut</div><div class="src"><a href="https://news.wttw.com/2024/11/07/budget-chicago-s-health-department-set-drop-16-advocates-plead-more-money" target="_blank" rel="noopener">WTTW, Nov 7, 2024</a></div></div>
+      <div class="card stat"><div class="big">3</div><div class="what">air inspectors; 4,500+ complaint inspections vs. 393 routine</div><div class="src"><a href="https://borderlessmag.org/2025/04/02/chicago-department-of-public-health-environmental-justice-pollution/" target="_blank" rel="noopener">Borderless, Apr 2, 2025</a></div></div>
+      <div class="card stat"><div class="big">Sept 2026</div><div class="what">The $2M federal grant behind CDPH's 277-sensor network ended; no upkeep funding named</div><div class="src"><a href="https://kurrant.com/kurrantly-news/chicago-health-department-turns-on-277-sensor-open-air-chicago-monitoring-network/" target="_blank" rel="noopener">Kurrant, July 14, 2026</a></div></div>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3><span class="num">2</span>What CDPH needs to do better</h3>
+    <p>Three cases from CDPH's recent history. Each one needed evidence CDPH didn't have when it mattered.</p>
+    <div class="grid g3" style="margin-top:12px">
+      <article class="card case"><div class="shot"><img src="img/clip_hilco.jpg" alt="Block Club Chicago headline: Hilco will pay $12.25 million settlement over 2020 demolition that covered Little Village in dust, with a photo of a dust-filled street" loading="lazy"></div><div class="body"><div class="meta">Environmental justice · <a href="https://blockclubchicago.org/2024/01/16/hilco-will-pay-12-25-million-settlement-over-2020-demolition-that-covered-little-village-in-dust/" target="_blank" rel="noopener">Block Club Chicago, Jan 16, 2024</a></div><h4>The Little Village implosion</h4><p>On April 11, 2020, a smokestack implosion covered Little Village in dust. Hilco later paid a $12.25M settlement.</p><div class="add"><b>With the commons:</b> a block-by-block map of where the plume went within minutes, and a public record of what was measured and what CDPH did.</div></div></article>
+      <article class="card case"><div class="shot"><img src="img/clip_heatwatch.jpg" alt="Headline: Heat study, Chicago temperatures vary as much as 22 degrees between neighborhoods, with a street photo" loading="lazy"></div><div class="body"><div class="meta">Extreme heat · <a href="https://blockclubchicago.org/2023/12/21/heat-watch-study-finds-disproportionate-impacts-of-extreme-weather-across-city/" target="_blank" rel="noopener">Block Club Chicago, Dec 21, 2023</a></div><h4>Heat Watch, one day a year</h4><p>About 100 volunteers measured a 22°F spread across the city on one day in July 2023. Official readings come from two airports.</p><div class="add"><b>With the commons:</b> routine flights logging temperature, so the one-day map becomes a continuous record for every summer.</div></div></article>
+      <article class="card case"><div class="shot"><img src="img/clip_capacity.jpg" alt="Headline: Chicago Department of Public Health faces capacity hurdles with environmental inspections" loading="lazy" style="object-fit:contain;background:#fff"></div><div class="body"><div class="meta">Inspection and equity · <a href="https://borderlessmag.org/2025/04/02/chicago-department-of-public-health-environmental-justice-pollution/" target="_blank" rel="noopener">Borderless, Apr 2, 2025</a></div><h4>Inspections follow complaints</h4><p>With three inspectors, most inspections answer complaints, and most complaints come from higher-income areas.</p><div class="add"><b>With the commons:</b> the same inspectors working a list ranked by burden and verified readings, not by who calls.</div></div></article>
+    </div>
+  </div>
+
+  <div class="sub">
+    <h3><span class="num">3</span>What's arriving overhead, and the warnings</h3>
+    <div class="cols" style="margin-top:12px">
+      <div>
+        <div class="colhead arrive">Arriving</div>
+        <div class="item noimg"><div><h4><a href="https://abc7chicago.com/post/amazon-drone-delivery-coming-areas-surrounding-markham-matteson-fulfillment-centers-south-suburbs/18592012" target="_blank" rel="noopener">Amazon drone delivery coming to parts of Chicago area</a></h4><div class="meta">ABC7 Chicago · Feb 12, 2026</div><p>Service from Markham and Matteson within about 8 miles. Tinley Park says it learned about a month ahead.</p></div></div>
+        <div class="item noimg"><div><h4><a href="https://abc7chicago.com/post/oak-brook-police-department-launches-fully-autonomous-drone-first-responder-concerned-privacy-rights/17539659/" target="_blank" rel="noopener">Oak Brook police launch first fully autonomous drone in state</a></h4><div class="meta">ABC7 Chicago · Aug 15, 2025</div><p>A Flock drone launches on 911 calls and sends live video and license plate data, at $275,000 a year. Flight paths are posted; data rules are set by the department itself.</p></div></div>
+        <div class="item noimg"><div><h4><a href="https://uavcoach.com/part-108-stuck/" target="_blank" rel="noopener">FAA Part 108, the rule for routine long-range flights, is in final review</a></h4><div class="meta">UAV Coach · Sept 16, 2026</div><p>Sent to the White House on July 10, 2026; the FAA hopes to publish by year end. It opens cities to everyday delivery flights.</p></div></div>
+      </div>
+      <div>
+        <div class="colhead warn">Warnings</div>
+        <div class="item noimg"><div><h4><a href="https://abc7chicago.com/post/flock-safety-license-plate-camera-company-halts-cooperation-federal-agencies-among-investigation-concerns-including-il/17653876/" target="_blank" rel="noopener">License plate camera company halts cooperation with federal agencies</a></h4><div class="meta">ABC7 Chicago · Aug 26, 2025</div><p>Illinois' Secretary of State found U.S. Customs and Border Protection had accessed Illinois license plate data through Flock, which he called a clear violation of a 2023 state law.</p></div></div>
+        <div class="item"><img src="img/clip_hayden.jpg" alt="Graphic: Chicago becomes 10th major city to launch automated transit zone enforcement with Hayden AI" loading="lazy"><div><h4><a href="https://chicago.suntimes.com/city-hall/2026/10/09/chicago-smart-streets-bus-bike-lane-violation" target="_blank" rel="noopener">Bus-lane cameras head citywide</a></h4><div class="meta">Chicago Sun-Times · Oct 9, 2026</div><p>Hayden AI cameras on up to 100 CTA buses, citywide by January 2028, projected at $9.4M in added revenue. A program that grows through budget decisions.</p></div></div>
+        <div class="item"><img src="img/clip_la_mds.jpg" alt="GovTech headline: Group criticizing mobility data system includes Uber, others, with scooters on a sidewalk" loading="lazy"><div><h4><a href="https://thefederaldocket.com/sanchez-v-ladot-9th-cir-may-2022/" target="_blank" rel="noopener">Los Angeles' scooter data fight</a></h4><div class="meta">Sanchez v. LADOT · Ninth Circuit, 2022</div><p>LA required trip data as a permit condition. Uber refused and lost its permit; the court upheld the city. The privacy fight is the lesson for purpose limits.</p></div></div>
+      </div>
+    </div>
+    <div class="lesson">Drones are showing up with police first, and the rules for who can read the data get written after the fact. <span>We want to write them first.</span></div>
+  </div>
+
+  <div class="sub">
+    <h3><span class="num">4</span>Tax or trade?</h3>
+    <p>Chicago's 2026 budget taxed cloud services, social media users and rideshares. We found no fee on drone operators yet, so they're a likely next target. A fee raises money. It doesn't tell CDPH where the air is worst, and it doesn't add an inspector.</p>
+    <div class="tscroll" style="margin-top:10px"><table>
+      <thead><tr><th>Option</th><th>What the city gets</th><th>What it costs</th><th>Who carries it</th></tr></thead>
+      <tbody>
+        <tr><td>Fly our own</td><td>Full control of data</td><td>Fleet, pilots, insurance</td><td>City budget</td></tr>
+        <tr><td>Buy data</td><td>Readings on demand</td><td>Recurring contracts</td><td>City budget</td></tr>
+        <tr><td>Tax operators</td><td>Revenue</td><td>Goodwill; hubs may move out</td><td>Operators, then customers</td></tr>
+        <tr class="ours"><td>Trade for data (our proposal)</td><td>Readings, coverage and a public record</td><td>Staff time and a terms desk</td><td>Shared; operators pay in kind</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="label">Part II · How we got here</div>
+  <h2>From one agency's tool to a shared commons</h2>
+  <p class="lead">We started with a detailed picture of how CDPH could use the airspace, and four bundles built around it. But when we abstracted it, we only swapped CDPH for "your agency." The system underneath stayed the same, insinuating duplicated effort and no coordination between agencies.</p>
+  <p>So we asked a different question: is CDPH really the only public agency that would benefit from the urban airspace as a sensing network? Six other actors read our airspace, and the parts we first called "shared" were exactly where they collided.</p>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card"><h4>Fire and emergency</h4><p>Might need the same drones as CDPH during similar times of emergency.</p></div>
+    <div class="card"><h4>Transportation</h4><p>Wants cameras on drones for bridges, streets and roofs, which could heighten surveillance concerns.</p></div>
+    <div class="card"><h4>Aviation</h4><p>Wants fewer drones near airports, next to some of our most burdened blocks.</p></div>
+    <div class="card"><h4>Operators</h4><p>Every department asking for something wears down the same goodwill.</p></div>
+    <div class="card"><h4>Residents</h4><p>Can say no to how data is used, but not to the flights, and can't see who flew.</p></div>
+    <div class="card"><h4>Ecology</h4><p>No voice, but affected: Chicago sits on one of the largest migratory bird paths in the country.</p></div>
+  </div>
+  <div class="scmm" style="margin-top:20px">
+    <div><div class="n">01 · PROMPTING</div><h4 style="margin-top:6px">A moment and a claim</h4><p>We bounded the problem at the inspector's morning list. From its position as advocate and anchor tenant, CDPH reshapes how Chicago gathers airspace data and shares the capacity to collect it.</p></div>
+    <div><div class="n">02 · PROTOTYPING</div><h4 style="margin-top:6px">18 prototypes, 2 shared bases</h4><p>We rebuilt the set so CDPH's shareable tools became city infrastructure that any agency can use.</p></div>
+    <div><div class="n">03 · ARCHETYPING</div><h4 style="margin-top:6px">Three archetypes</h4><p>One for each relationship: operators and the city, agency to agency, the city and its residents.</p></div>
+    <div class="now"><div class="n">04 · INFRASTRUCTURING</div><h4 style="margin-top:6px">Telling it, showing it</h4><p>Six action situations, four audiences, and the case for building it.</p></div>
+  </div>
+  <figure class="figure" style="margin:16px 0 0"><a class="zoomable" href="img/scene_week11.jpg" data-board="img/scene_week11.jpg" data-title="Illustrated street scene: a drone over an industrial yard, an inspector at a gate, community health workers at a bus shelter showing an air quality alert"><img src="img/scene_week11.jpg" alt="Illustrated street scene: a drone over an industrial yard, an inspector at a gate, community health workers at a bus shelter showing an air quality alert" loading="lazy"></a><figcaption class="caption">One street where the drone, the inspector, the health workers and the public sign all meet.</figcaption></figure>
+</section>
+
+<section id="commons">
+  <div class="label">Part III · The commons</div>
+  <h2>Built once by the city. Every relationship runs through it.</h2>
+  <div class="grid g3" style="margin-top:14px">
+    <div class="card stat"><div class="label" style="margin-bottom:6px">Goal</div><h3>Act before harm builds</h3><p>Many agencies can act before harm builds, instead of reacting once it already has. The urban airspace should help them build preventive capacity and do more with less.</p></div>
+    <div class="card stat"><div class="label" style="margin-bottom:6px">Goal</div><h3>Protection first, and a fair share of the sky</h3><p>Equity is not just an activist trait for public agencies; the services they provide are for all. Protection reaches the most burdened blocks first, and no block carries more than its share of the sky.</p></div>
+    <div class="card stat"><div class="label" style="margin-bottom:6px">Goal</div><h3>Answerable to the people below</h3><p>Public agencies provide services to the public, but too often do not truly answer to them. Every reading should be answerable to the people beneath it.</p></div>
+  </div>
+  <div class="grid commons2" style="margin-top:14px;align-items:start">
+    <div class="figure"><a class="zoomable" href="img/Archetypes_Commons.svg" data-board="img/Archetypes_Commons.svg" data-title="Three overlapping rings: Flights pay their way, One sky many readers, The sky answers to the street; the commons at the center"><img src="img/Archetypes_Commons.svg" alt="Three overlapping rings: Flights pay their way, One sky many readers, The sky answers to the street; the commons at the center"></a></div>
+    <div class="figure">
+      <svg viewBox="0 0 1040 680" role="img" aria-label="How the commons works: the city base at the center, CDPH plugs in first, operators, agencies and residents exchange with the base" font-family="Public Sans, Helvetica, Arial, sans-serif">
+        <defs>
+          <marker id="aO" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#007A65"/></marker>
+          <marker id="aA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#5B6B7A"/></marker>
+          <marker id="aR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#2B5FAE"/></marker>
+          <marker id="aC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#D86018"/></marker>
+        </defs>
+        <text x="20" y="30" font-size="13" font-weight="700" fill="#3BA3DC" letter-spacing="1.6">HOW THE COMMONS WORKS</text>
+        <rect x="420" y="44" width="200" height="92" rx="4" fill="#FCEBDD" stroke="#D86018" stroke-width="2"/>
+        <text x="520" y="74" text-anchor="middle" font-size="16" font-weight="800" fill="#0B2341">CDPH · first tenant</text>
+        <text x="520" y="96" text-anchor="middle" font-size="13" fill="#4E5D6C">health layer · inspections</text>
+        <text x="520" y="114" text-anchor="middle" font-size="13" fill="#4E5D6C">anchor sensors · messengers</text>
+        <path d="M520 136V246" stroke="#D86018" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#aC)"/>
+        <text x="532" y="196" font-size="13" fill="#D86018" font-weight="700">plugs in first</text>
+        <rect x="390" y="250" width="260" height="196" rx="4" fill="#0B2341"/>
+        <text x="520" y="280" text-anchor="middle" font-size="17" font-weight="800" fill="#FFFFFF">City base · built once</text>
+        <text x="520" y="306" text-anchor="middle" font-size="13.5" fill="#FFFFFF">base map · payload standard</text>
+        <text x="520" y="325" text-anchor="middle" font-size="13.5" fill="#FFFFFF">tasking queue · backup plan</text>
+        <line x1="414" y1="344" x2="626" y2="344" stroke="#3BA3DC"/>
+        <text x="520" y="368" text-anchor="middle" font-size="13" fill="#C9D5E2">Runs it: DTI</text>
+        <text x="520" y="388" text-anchor="middle" font-size="13" fill="#C9D5E2">Decides: custodian board</text>
+        <text x="520" y="406" text-anchor="middle" font-size="13" fill="#C9D5E2">and neighborhood panels</text>
+        <text x="520" y="430" text-anchor="middle" font-size="12" fill="#9FD3F0">ledger · purpose labels · burden budget</text>
+        <text x="120" y="248" text-anchor="middle" font-size="13.5" font-weight="800" fill="#007A65">1 · Flights pay their way</text>
+        <rect x="20" y="262" width="200" height="132" rx="4" fill="#E3F2EF" stroke="#007A65" stroke-width="2"/>
+        <text x="120" y="298" text-anchor="middle" font-size="17" font-weight="800" fill="#0B2341">Operators</text>
+        <text x="120" y="322" text-anchor="middle" font-size="13" fill="#4E5D6C">delivery and inspection</text>
+        <text x="120" y="340" text-anchor="middle" font-size="13" fill="#4E5D6C">companies, hubs,</text>
+        <text x="120" y="358" text-anchor="middle" font-size="13" fill="#4E5D6C">permitted facilities</text>
+        <path d="M222 300H386" stroke="#007A65" stroke-width="2" marker-end="url(#aO)"/>
+        <text x="304" y="268" text-anchor="middle" font-size="12.5" fill="#1E2B3A">pod carriage</text>
+        <text x="304" y="284" text-anchor="middle" font-size="12.5" fill="#1E2B3A">flight logs · sensor data</text>
+        <path d="M388 360H224" stroke="#007A65" stroke-width="2" marker-end="url(#aO)"/>
+        <text x="304" y="380" text-anchor="middle" font-size="12.5" fill="#1E2B3A">pooled weather and routes</text>
+        <text x="304" y="396" text-anchor="middle" font-size="12.5" fill="#1E2B3A">credits, never cash</text>
+        <text x="920" y="248" text-anchor="middle" font-size="13.5" font-weight="800" fill="#5B6B7A">2 · One sky, many readers</text>
+        <rect x="820" y="262" width="200" height="132" rx="4" fill="#EBEEF2" stroke="#5B6B7A" stroke-width="2"/>
+        <text x="920" y="298" text-anchor="middle" font-size="17" font-weight="800" fill="#0B2341">Other agencies</text>
+        <text x="920" y="322" text-anchor="middle" font-size="13" fill="#4E5D6C">OEMC · Fire · CDOT</text>
+        <text x="920" y="340" text-anchor="middle" font-size="13" fill="#4E5D6C">Water · Aviation</text>
+        <text x="920" y="358" text-anchor="middle" font-size="13" fill="#4E5D6C">an ecology steward</text>
+        <path d="M818 300H654" stroke="#5B6B7A" stroke-width="2" marker-end="url(#aA)"/>
+        <text x="736" y="268" text-anchor="middle" font-size="12.5" fill="#1E2B3A">a share of base cost</text>
+        <text x="736" y="284" text-anchor="middle" font-size="12.5" fill="#1E2B3A">their layers · purposes</text>
+        <path d="M652 360H816" stroke="#5B6B7A" stroke-width="2" marker-end="url(#aA)"/>
+        <text x="736" y="380" text-anchor="middle" font-size="12.5" fill="#1E2B3A">one map · one queue</text>
+        <text x="736" y="396" text-anchor="middle" font-size="12.5" fill="#1E2B3A">one backup · one arbiter</text>
+        <rect x="400" y="552" width="240" height="104" rx="4" fill="#E6EDF8" stroke="#2B5FAE" stroke-width="2"/>
+        <text x="520" y="586" text-anchor="middle" font-size="17" font-weight="800" fill="#0B2341">Residents</text>
+        <text x="520" y="610" text-anchor="middle" font-size="13" fill="#4E5D6C">panels · sensing crews</text>
+        <text x="520" y="628" text-anchor="middle" font-size="13" fill="#4E5D6C">everyone under the flights</text>
+        <text x="656" y="642" font-size="13.5" font-weight="800" fill="#2B5FAE">3 · The sky answers to the street</text>
+        <path d="M480 448V548" stroke="#2B5FAE" stroke-width="2" marker-end="url(#aR)"/>
+        <text x="470" y="494" text-anchor="end" font-size="12.5" fill="#1E2B3A">the flight ledger</text>
+        <text x="470" y="510" text-anchor="end" font-size="12.5" fill="#1E2B3A">answers by deadline</text>
+        <path d="M560 550V450" stroke="#2B5FAE" stroke-width="2" marker-end="url(#aR)"/>
+        <text x="572" y="494" font-size="12.5" fill="#1E2B3A">votes on purposes</text>
+        <text x="572" y="510" font-size="12.5" fill="#1E2B3A">readings · requests</text>
+      </svg>
+    </div>
+  </div>
+  <p class="caption">Left: the three archetypes as overlapping rings; take any one away and the other two come apart. Right: what moves between the city base and each relationship. DTI runs the base; it decides nothing about who may read what.</p>
+
+  <h3 style="margin-top:28px">Each archetype, how it works</h3>
+  <div class="tabs" role="tablist" aria-label="Archetypes">
+    <button class="tab" role="tab" id="t1" aria-selected="true" aria-controls="p1"><i style="background:var(--op)"></i>1 · Flights pay their way</button>
+    <button class="tab" role="tab" id="t2" aria-selected="false" aria-controls="p2"><i style="background:var(--ag)"></i>2 · One sky, many readers</button>
+    <button class="tab" role="tab" id="t3" aria-selected="false" aria-controls="p3"><i style="background:var(--res)"></i>3 · The sky answers to the street</button>
+  </div>
+  <div class="tabpanel" role="tabpanel" id="p1" aria-labelledby="t1"><a class="zoomable" href="img/Archetype1_Flights_Pay_Their_Way.svg" data-board="img/Archetype1_Flights_Pay_Their_Way.svg" data-title="Archetype 1 diagram: operators use city launch sites and fly, pay in data, the city sees more, they get something back; the burden budget at the center caps the loop"><img src="img/Archetype1_Flights_Pay_Their_Way.svg" alt="Archetype 1 diagram: operators use city launch sites and fly, pay in data, the city sees more, they get something back; the burden budget at the center caps the loop"></a></div>
+  <div class="tabpanel" role="tabpanel" id="p2" aria-labelledby="t2" hidden><a class="zoomable" href="img/Archetype2_One_Sky_Many_Readers.svg" data-board="img/Archetype2_One_Sky_Many_Readers.svg" data-title="Archetype 2 diagram: agencies read from one base map, with shared rules for gaps, emergencies, groundings and exercises"><img src="img/Archetype2_One_Sky_Many_Readers.svg" alt="Archetype 2 diagram: agencies read from one base map, with shared rules for gaps, emergencies, groundings and exercises"></a></div>
+  <div class="tabpanel" role="tabpanel" id="p3" aria-labelledby="t3" hidden><a class="zoomable" href="img/Archetype3_Sky_Answers_To_Street.svg" data-board="img/Archetype3_Sky_Answers_To_Street.svg" data-title="Archetype 3 diagram: a gate of purpose labels and resident panels between readers and the data, a public ledger, and residents who measure"><img src="img/Archetype3_Sky_Answers_To_Street.svg" alt="Archetype 3 diagram: a gate of purpose labels and resident panels between readers and the data, a public ledger, and residents who measure"></a></div>
+
+  <h3 style="margin-top:28px">The choices underneath</h3>
+  <div class="grid g3" style="margin-top:10px">
+    <div class="card"><h4>Operators pay in data, not money</h4><p>Use a city launch site, share a basic flight record. Share more, get better weather and route information back.</p></div>
+    <div class="card"><h4>Every reading remembers why it was taken</h4><p>Health data stays health data. Adding a new use takes a public decision.</p></div>
+    <div class="card"><h4>"Fair" has two sides</h4><p>A cap on how much any block carries, counted across every agency, and each agency's own promise about who it serves first.</p></div>
+    <div class="card"><h4>Residents help define burden</h4><p>Built on Chicago's own environmental justice map, which residents helped make. Neighborhood panels say yes or no to cameras.</p></div>
+    <div class="card"><h4>The one who runs it doesn't decide on it</h4><p>The city's tech office runs the platform. An independent board with resident seats holds the data.</p></div>
+    <div class="card"><h4>Most of the time, nobody has to referee</h4><p>Once data exists it can be shared. Only the flights themselves are scarce, and that mostly matters in emergencies.</p></div>
+  </div>
+</section>
+
+<section id="situations">
+  <div class="label">Action situations</div>
+  <h2>A year in the commons, in six moments</h2>
+  <p class="lead">Follow the commons from the morning the first hub opens to the day every drone is grounded. Each action situation is one instant where several archetypes meet, with prototypes working on the street and behind it.</p>
+  <nav class="steps" aria-label="Action situations"><a href="#sit1"><b>1</b><span>The first launch</span><small>Set terms</small></a><a href="#sit2"><b>2</b><span>Two readers, one flight</span><small>Collect</small></a><a href="#sit3"><b>3</b><span>The list re-sorts</span><small>Act</small></a><a href="#sit4"><b>4</b><span>The handoff</span><small>Allocate</small></a><a href="#sit5"><b>5</b><span>No and yes</span><small>Govern</small></a><a href="#sit6"><b>6</b><span>Everything goes quiet</span><small>Continue</small></a></nav>
+
+  <article class="chap" id="sit1">
+    <a class="shot" href="img/AS1_First_Launch_annotated.jpg" data-board="img/AS1_First_Launch_annotated.jpg" title="Open the annotated board"><img src="img/AS1_First_Launch_clean.jpg" alt="Isometric illustration of action situation 1, The first launch" loading="lazy"><span class="open">Open the annotated board</span></a>
+    <div class="txt">
+      <div class="fnl"><span class="num">1</span><span>Action situation 1 · Set terms</span></div>
+      <div class="tm">8:05 am</div>
+      <h3>The first launch</h3>
+      <p>The first delivery drone lifts off from a new hub on the city&#x27;s edge. The city can&#x27;t regulate the sky, but it approved the hub, so the terms switch on with the first flight: a flight log, a planned route and a noise class, with delivery addresses blurred to the block.</p>
+      <div class="meet"><span>Archetypes meeting</span><span class="dot op">1</span><span class="dot ag">2</span><span class="dot res">3</span></div>
+      <div class="trc">Base 1 <span class="ar">→</span> <b>Shared capacity</b> <span class="ar">→</span> Lower cost per agency <span class="ar">→</span> Act before harm builds</div>
+      <div class="acts"><a class="pri" href="#anatomy" data-as="AS5">See what it activates</a><a href="img/AS1_First_Launch_annotated.jpg" data-board="img/AS1_First_Launch_annotated.jpg">Annotated board</a></div>
+    </div>
+  </article>
+  <article class="chap flip" id="sit2">
+    <a class="shot" href="img/AS2_Two_Readers_annotated.jpg" data-board="img/AS2_Two_Readers_annotated.jpg" title="Open the annotated board"><img src="img/AS2_Two_Readers_clean.jpg" alt="Isometric illustration of action situation 2, Two readers, one flight" loading="lazy"><span class="open">Open the annotated board</span></a>
+    <div class="txt">
+      <div class="fnl"><span class="num">2</span><span>Action situation 2 · Collect</span></div>
+      <div class="tm">11:42 am</div>
+      <h3>Two readers, one flight</h3>
+      <p>One drone, one city pod, three readers: air quality for CDPH, bridge photos for CDOT and a migration count for the ecology steward. The camera stays off over homes. Because it&#x27;s aboard, the flight counts extra and takes the block to its review line.</p>
+      <div class="meet"><span>Archetypes meeting</span><span class="dot op">1</span><span class="dot ag">2</span><span class="dot res">3</span></div>
+      <div class="trc">Payload standard <span class="ar">→</span> <b>Shared capacity</b> <span class="ar">→</span> Lower cost per agency <span class="ar">→</span> Act before harm builds</div>
+      <div class="acts"><a class="pri" href="#anatomy" data-as="AS1">See what it activates</a><a href="img/AS2_Two_Readers_annotated.jpg" data-board="img/AS2_Two_Readers_annotated.jpg">Annotated board</a></div>
+    </div>
+  </article>
+  <article class="chap" id="sit3">
+    <a class="shot" href="img/AS3_List_Resorts_annotated.jpg" data-board="img/AS3_List_Resorts_annotated.jpg" title="Open the annotated board"><img src="img/AS3_List_Resorts_clean.jpg" alt="Isometric illustration of action situation 3, The list re-sorts" loading="lazy"><span class="open">Open the annotated board</span></a>
+    <div class="txt">
+      <div class="fnl"><span class="num">3</span><span>Action situation 3 · Act</span></div>
+      <div class="tm">7:58 am</div>
+      <h3>The list re-sorts</h3>
+      <p>A resident crew&#x27;s reading, the school&#x27;s rooftop sensor and the facility&#x27;s own survey all agree. Two minutes before the shift, the inspector&#x27;s list puts the facility first, and CDPH owes the crew an answer by Thursday.</p>
+      <div class="meet"><span>Archetypes meeting</span><span class="dot op">1</span><span class="dot res">3</span><span class="dot cdph">CDPH</span></div>
+      <div class="trc">Sensing-directed inspection <span class="ar">→</span> <b>Coverage by need</b> <span class="ar">→</span> Less complaint-driven inspection <span class="ar">→</span> Protection first</div>
+      <div class="acts"><a class="pri" href="#anatomy" data-as="AS3">See what it activates</a><a href="img/AS3_List_Resorts_annotated.jpg" data-board="img/AS3_List_Resorts_annotated.jpg">Annotated board</a></div>
+    </div>
+  </article>
+  <article class="chap flip" id="sit4">
+    <a class="shot" href="img/AS4_Handoff_annotated.jpg" data-board="img/AS4_Handoff_annotated.jpg" title="Open the annotated board"><img src="img/AS4_Handoff_clean.jpg" alt="Isometric illustration of action situation 4, The handoff" loading="lazy"><span class="open">Open the annotated board</span></a>
+    <div class="txt">
+      <div class="fnl"><span class="num">4</span><span>Action situation 4 · Allocate</span></div>
+      <div class="tm">2:25 pm</div>
+      <h3>The handoff</h3>
+      <p>Smoke rises next to a burdened block in the middle of a heat wave. Fire flies first, health keeps its share of the fleet, and the wider emergency powers end at 8 pm. The cooling center was already open because a forecast flagged the block two days earlier.</p>
+      <div class="meet"><span>Archetypes meeting</span><span class="dot op">1</span><span class="dot ag">2</span><span class="dot res">3</span><span class="dot cdph">CDPH</span></div>
+      <div class="trc">Emergency airspace mode <span class="ar">→</span> <b>Allocation</b> <span class="ar">→</span> Conflicts settled by rule, not budget <span class="ar">→</span> Protection first</div>
+      <div class="acts"><a class="pri" href="#anatomy" data-as="AS2">See what it activates</a><a href="img/AS4_Handoff_annotated.jpg" data-board="img/AS4_Handoff_annotated.jpg">Annotated board</a></div>
+    </div>
+  </article>
+  <article class="chap" id="sit5">
+    <a class="shot" href="img/AS5_No_and_Yes_annotated.jpg" data-board="img/AS5_No_and_Yes_annotated.jpg" title="Open the annotated board"><img src="img/AS5_No_and_Yes_clean.jpg" alt="Isometric illustration of action situation 5, No and yes" loading="lazy"><span class="open">Open the annotated board</span></a>
+    <div class="txt">
+      <div class="fnl"><span class="num">5</span><span>Action situation 5 · Govern</span></div>
+      <div class="tm">Wed and Thu</div>
+      <h3>No and yes</h3>
+      <p>A police request for one block&#x27;s health readings stops at the gate. The next evening, the same block&#x27;s panel approves bridge cameras through the only way in: a public vote, with limits and an end date.</p>
+      <div class="meet"><span>Archetypes meeting</span><span class="dot op">1</span><span class="dot ag">2</span><span class="dot res">3</span></div>
+      <div class="trc">Purpose labels <span class="ar">→</span> <b>Purpose limitation</b> <span class="ar">→</span> Less surveillance risk <span class="ar">→</span> Answerable to the people below</div>
+      <div class="acts"><a class="pri" href="#anatomy" data-as="AS4">See what it activates</a><a href="img/AS5_No_and_Yes_annotated.jpg" data-board="img/AS5_No_and_Yes_annotated.jpg">Annotated board</a></div>
+    </div>
+  </article>
+  <article class="chap flip" id="sit6">
+    <a class="shot" href="img/AS6_Quiet_annotated.jpg" data-board="img/AS6_Quiet_annotated.jpg" title="Open the annotated board"><img src="img/AS6_Quiet_clean.jpg" alt="Isometric illustration of action situation 6, Everything goes quiet" loading="lazy"><span class="open">Open the annotated board</span></a>
+    <div class="txt">
+      <div class="fnl"><span class="num">6</span><span>Action situation 6 · Continue</span></div>
+      <div class="tm">11:00 am</div>
+      <h3>Everything goes quiet</h3>
+      <p>An FAA grounding lands every drone in the city. One switch moves every agency to ground sensors and satellite feeds, a crew picks up a paused ticket, and nobody goes dark.</p>
+      <div class="meet"><span>Archetypes meeting</span><span class="dot op">1</span><span class="dot ag">2</span><span class="dot res">3</span><span class="dot cdph">CDPH</span></div>
+      <div class="trc">Grounding fallback <span class="ar">→</span> <b>Redundancy</b> <span class="ar">→</span> Continuity of awareness <span class="ar">→</span> Act before harm builds</div>
+      <div class="acts"><a class="pri" href="#anatomy" data-as="AS6">See what it activates</a><a href="img/AS6_Quiet_annotated.jpg" data-board="img/AS6_Quiet_annotated.jpg">Annotated board</a></div>
+    </div>
+  </article>
+</section>
+
+<section id="anatomy">
+  <div class="label">Anatomy of Infrastructures</div>
+  <h2>What each action situation activates</h2>
+  <p>Read it inward. Features on the outer ring give people affordances, affordances drive impacts, and impacts serve or work against the three goals at the center. Pick an action situation or an audience, switch the outer ring to prototypes, or hover any node to trace it.</p>
+  <div class="print-only pcard">The interactive Anatomy of Infrastructures lives on the web version. Pick an action situation or an audience there to see which features, affordances, impacts and goals switch on: <a class="site-url" data-hash="#anatomy" href="./#anatomy">the project website</a></div>
+  <div style="margin-top:14px"><div id="aoix">
+<button type="button" class="fullbtn" id="aoiFull" aria-pressed="false">Full screen</button>
+<div class="eyebrow" id="counts" style="margin-bottom:8px"></div>
+<div class="controls">
+  <div class="row" id="momentRow"><span class="lbl">Action situations</span></div>
+  <div class="row" id="lensRow"><span class="lbl">Audiences</span></div>
+  <div class="row">
+    <span class="lbl">Outer ring</span>
+    <div class="seg" role="group" aria-label="Outer ring level"><button id="ringFeat" aria-pressed="true">Features</button><button id="ringProto" aria-pressed="false">Prototypes</button></div>
+    <span class="lbl" style="min-width:0;margin-left:10px">Layers</span>
+    <span id="layerRow" class="row"></span>
+    <button class="chip" id="riskToggle" aria-pressed="true">Unintended impacts</button>
+    <button class="chip" id="clearBtn">Clear</button>
+  </div>
+</div>
+
+<div class="main">
+  <div class="stage" id="stage">
+    <svg id="aoi" viewBox="0 0 1440 1440" role="img" aria-label="Radial Anatomy of Infrastructures: goals at the center, then impacts, affordances, and features or prototypes on the outer ring."></svg>
+    <div class="tip" id="tip" hidden></div>
+  </div>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</div>
+</div></div>
+</section>
+
+<section id="impacts">
+  <div class="label">Unintended impacts</div>
+  <h2>No archetype stands alone</h2>
+  <p>Every unintended impact we found has something holding it back, and most of the time that something comes from a different archetype. Each arrow runs from the archetype that holds an impact back to the one that creates it. Seven of the ten are held by another archetype; take one ring away and the others start to drift.</p>
+  <div class="figure wide" style="margin-top:12px">
+    <svg viewBox="0 0 1000 690" role="img" aria-label="No archetype stands alone: arrows run from the archetype that holds an unintended impact back to the archetype that creates it" font-family="Public Sans, Helvetica, Arial, sans-serif">
+      <defs>
+        <marker id="ck" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0B2341"/></marker>
+      </defs>
+      <!-- arrows -->
+      <path d="M718 196Q500 128 282 196" fill="none" stroke="#0B2341" stroke-width="2.2" marker-end="url(#ck)"/>
+      <path d="M282 266Q500 334 718 266" fill="none" stroke="#0B2341" stroke-width="2.2" marker-end="url(#ck)"/>
+      <path d="M452 487L272 287" fill="none" stroke="#0B2341" stroke-width="2.2" marker-end="url(#ck)"/>
+      <path d="M548 487L728 287" fill="none" stroke="#0B2341" stroke-width="2.2" marker-end="url(#ck)"/>
+      <path d="M808 540L574 540" fill="none" stroke="#0B2341" stroke-width="2.2" marker-end="url(#ck)"/>
+      <!-- self loops -->
+      <path d="M198 163A26 26 0 1 1 242 163" fill="none" stroke="#0B2341" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ck)"/>
+      <path d="M758 163A26 26 0 1 1 802 163" fill="none" stroke="#0B2341" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ck)"/>
+      <path d="M840 584A24 24 0 1 0 880 584" fill="none" stroke="#0B2341" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ck)"/>
+      <!-- nodes -->
+      <circle cx="220" cy="230" r="72" fill="#E3F2EF" stroke="#007A65" stroke-width="3"/>
+      <text x="220" y="210" text-anchor="middle" font-size="10.5" font-weight="700" fill="#007A65" letter-spacing="1">OPERATORS ↔ CITY</text>
+      <text x="220" y="234" text-anchor="middle" font-size="16" font-weight="800" fill="#0B2341">Flights pay</text>
+      <text x="220" y="254" text-anchor="middle" font-size="16" font-weight="800" fill="#0B2341">their way</text>
+      <circle cx="780" cy="230" r="72" fill="#EBEEF2" stroke="#5B6B7A" stroke-width="3"/>
+      <text x="780" y="210" text-anchor="middle" font-size="10.5" font-weight="700" fill="#5B6B7A" letter-spacing="1">AGENCY ↔ AGENCY</text>
+      <text x="780" y="234" text-anchor="middle" font-size="16" font-weight="800" fill="#0B2341">One sky,</text>
+      <text x="780" y="254" text-anchor="middle" font-size="16" font-weight="800" fill="#0B2341">many readers</text>
+      <circle cx="500" cy="540" r="72" fill="#E6EDF8" stroke="#2B5FAE" stroke-width="3"/>
+      <text x="500" y="514" text-anchor="middle" font-size="10.5" font-weight="700" fill="#2B5FAE" letter-spacing="1">CITY ↔ RESIDENTS</text>
+      <text x="500" y="538" text-anchor="middle" font-size="16" font-weight="800" fill="#0B2341">The sky answers</text>
+      <text x="500" y="558" text-anchor="middle" font-size="16" font-weight="800" fill="#0B2341">to the street</text>
+      <circle cx="860" cy="540" r="50" fill="#FCEBDD" stroke="#D86018" stroke-width="3"/>
+      <text x="860" y="536" text-anchor="middle" font-size="15" font-weight="800" fill="#0B2341">CDPH</text>
+      <text x="860" y="554" text-anchor="middle" font-size="11" fill="#4E5D6C">own use</text>
+      <!-- labels -->
+      <text x="500" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#0B2341">One front door, a cap on asks</text>
+      <text x="500" y="130" text-anchor="middle" font-size="12" fill="#C8102E">holds: operator goodwill running out</text>
+      <text x="500" y="330" text-anchor="middle" font-size="14" font-weight="700" fill="#0B2341">One burden count across every agency</text>
+      <text x="500" y="348" text-anchor="middle" font-size="12" fill="#C8102E">holds: burden stacking up across agencies</text>
+      <text x="336" y="388" text-anchor="end" font-size="14" font-weight="700" fill="#0B2341">Panels can lower a budget;</text>
+      <text x="336" y="406" text-anchor="end" font-size="14" font-weight="700" fill="#0B2341">the ledger shows service gaps</text>
+      <text x="336" y="424" text-anchor="end" font-size="12" fill="#C8102E">holds: flying more, service avoidance</text>
+      <text x="664" y="388" font-size="14" font-weight="700" fill="#0B2341">Purpose labels; a public vote</text>
+      <text x="664" y="406" font-size="14" font-weight="700" fill="#0B2341">for every new use</text>
+      <text x="664" y="424" font-size="12" fill="#C8102E">holds: surveillance creep, purposes growing</text>
+      <text x="690" y="578" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0B2341">Health stays advisory;</text>
+      <text x="690" y="595" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0B2341">anchor sensors keep reading</text>
+      <text x="690" y="612" text-anchor="middle" font-size="12" fill="#C8102E">holds: blind spots from refusals</text>
+      <text x="220" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#0B2341">Burden budget, shared pods</text>
+      <text x="220" y="108" text-anchor="middle" font-size="12" fill="#C8102E">holds: more overflights</text>
+      <text x="780" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#0B2341">Separate layers; one backup</text>
+      <text x="780" y="108" text-anchor="middle" font-size="12" fill="#C8102E">holds: one failure exposing all</text>
+      <text x="860" y="648" text-anchor="middle" font-size="13" font-weight="700" fill="#0B2341">Confirm before alerts</text>
+      <text x="860" y="664" text-anchor="middle" font-size="12" fill="#C8102E">holds: alert fatigue</text>
+      <text x="20" y="30" font-size="13" font-weight="700" fill="#3BA3DC" letter-spacing="1.6">HOW THE ARCHETYPES HOLD EACH OTHER</text>
+      <line x1="20" y1="672" x2="52" y2="672" stroke="#0B2341" stroke-width="2.2" marker-end="url(#ck)"/>
+      <text x="60" y="676" font-size="12" fill="#4E5D6C">a feature in one archetype holds back an unintended impact in another</text>
+      <path d="M20 662" stroke="none"/>
+      <line x1="370" y1="672" x2="402" y2="672" stroke="#0B2341" stroke-width="2" stroke-dasharray="4 3"/>
+      <text x="410" y="676" font-size="12" fill="#4E5D6C">held within the same archetype</text>
+    </svg>
+  </div>
+  <details class="more"><summary>All ten unintended impacts, as a table</summary><div class="inner"><div class="tscroll"><table class="rtable">
+    <thead><tr><th>Comes from</th><th>Unintended impact</th><th>Held back by</th><th>Held by</th></tr></thead>
+    <tbody>
+      <tr><td>1 · Flights pay</td><td>More overflights over burdened areas</td><td>Burden budget and shared pods</td><td>1 · Flights pay</td></tr>
+      <tr><td>1 · Flights pay</td><td>Incentive to fly more</td><td>Panels can ask for a lower budget</td><td>3 · Answers to the street</td></tr>
+      <tr><td>1 · Flights pay</td><td>Operator goodwill runs out</td><td>One front door, one menu, a cap on asks</td><td>2 · One sky</td></tr>
+      <tr><td>1 · Flights pay</td><td>Service avoidance</td><td>Watched in the ledger; panel exceptions</td><td>3 · Answers to the street</td></tr>
+      <tr><td>2 · One sky</td><td>Burden stacks up across agencies</td><td>One burden count across every agency</td><td>1 · Flights pay</td></tr>
+      <tr><td>2 · One sky</td><td>Surveillance creep</td><td>Purpose labels and the access matrix</td><td>3 · Answers to the street</td></tr>
+      <tr><td>2 · One sky</td><td>Purposes grow through budget decisions</td><td>Rule for adding purposes: panel review, public vote, end date</td><td>3 · Answers to the street</td></tr>
+      <tr><td>2 · One sky</td><td>One failure exposes every agency</td><td>Separate layers; a backup that covers the platform</td><td>2 · One sky</td></tr>
+      <tr><td>3 · Answers to the street</td><td>Blind spots from refusals</td><td>Health readings stay advisory; anchor sensors keep reading</td><td>2 · One sky and CDPH</td></tr>
+      <tr><td>CDPH</td><td>Alert fatigue</td><td>Confirmation before alerts</td><td>CDPH</td></tr>
+    </tbody></table></div><p class="caption">Where an impact comes from is read from the affordance that drives it in the anatomy.</p></div></details>
+</section>
+
+<section id="prototypes">
+  <div class="label">Prototypes in use</div>
+  <h2>What people actually see and touch</h2>
+  <p class="lead">The action situations show the system from above. These show it at eye level: the screens, cards and sheets that operators and residents would hold, and when they'd hold them.</p>
+  <h3 style="margin-top:22px"><span class="who op" style="display:block;font-size:12px;margin-bottom:4px">Operators</span>Operators pay in data, not money</h3>
+  <p>The operator terms ladder (PT-TERMS), designed in depth: one pod flight from the locker to the credit, then the same rules seen in the dispatch room, at signing and on the block.</p>
+  <div class="gallery" style="margin-top:12px">
+    <figure><a class="zoomable" href="img/O1_Terms_Ladder.jpg" data-board="img/O1_Terms_Ladder.jpg" data-title="The terms ladder · signed yearly"><img src="img/O1_Terms_Ladder.jpg" alt="Board: three rising steps, Basic, Trade and Extras, each showing what operators give and get, with what the city never asks for and who handles the terms how often" loading="lazy"></a><figcaption><b>The terms ladder · signed yearly</b>Three levels, one front door: what operators give, what they get back, and what the city never asks for.</figcaption></figure>
+    <figure><a class="zoomable" href="img/PT-TERMS_The_Exchange.jpg" data-board="img/PT-TERMS_The_Exchange.jpg" data-title="PT-TERMS board: the exchange, from pod pickup to credit"><img src="img/PT-TERMS_The_Exchange.jpg" alt="PT-TERMS board: the exchange, from pod pickup to credit" loading="lazy"></a><figcaption><b>The exchange · Tuesday 7:40 am</b>Readings go to CDPH; the receipt goes to the operator.</figcaption></figure>
+    <figure><a class="zoomable" href="img/PT-TERMS_InUse_1.jpg" data-board="img/PT-TERMS_InUse_1.jpg" data-title="PT-TERMS in use 1: the dispatch room"><img src="img/PT-TERMS_InUse_1.jpg" alt="PT-TERMS in use 1: the dispatch room" loading="lazy"></a><figcaption><b>In use 1 · The dispatch room</b>The city's terms arrive as data; software follows them.</figcaption></figure>
+    <figure><a class="zoomable" href="img/PT-TERMS_InUse_2.jpg" data-board="img/PT-TERMS_InUse_2.jpg" data-title="PT-TERMS in use 2: signing"><img src="img/PT-TERMS_InUse_2.jpg" alt="PT-TERMS in use 2: signing" loading="lazy"></a><figcaption><b>In use 2 · Signing</b>A person signs once a year; agents act only within it.</figcaption></figure>
+    <figure><a class="zoomable" href="img/PT-TERMS_InUse_3.jpg" data-board="img/PT-TERMS_InUse_3.jpg" data-title="PT-TERMS in use 3: on the block"><img src="img/PT-TERMS_InUse_3.jpg" alt="PT-TERMS in use 3: on the block" loading="lazy"></a><figcaption><b>In use 3 · On the block</b>What residents see of the same rules.</figcaption></figure>
+  </div>
+  <h3 style="margin-top:30px"><span class="who res" style="display:block;font-size:12px;margin-bottom:4px">Residents</span>Read it, question it, decide it</h3>
+  <p>What a resident gets from the commons: a monthly card for their block, a binding say on new uses, and readings that the city has to answer.</p>
+  <div class="gallery" style="margin-top:12px">
+    <figure><a class="zoomable" href="img/R1_Block_Card.jpg" data-board="img/R1_Block_Card.jpg" data-title="The block card · monthly"><img src="img/R1_Block_Card.jpg" alt="Board: a resident on the front steps reads the monthly block card; the card's front and inside are shown beside the scene" loading="lazy"></a><figcaption><b>The block card · monthly</b>Every household sees who flew over its block, why, and how much of its share of the sky was used.</figcaption></figure>
+    <figure><a class="zoomable" href="img/R3_Panel_Ballot.jpg" data-board="img/R3_Panel_Ballot.jpg" data-title="The panel ballot · when asked"><img src="img/R3_Panel_Ballot.jpg" alt="Board: a neighborhood panel votes with colored cards on CDOT's bridge camera request; the ballot and the posted result are shown beside the scene" loading="lazy"></a><figcaption><b>The panel ballot · when asked</b>New uses need a public vote. Cameras need a yes, and every yes has limits and an end date.</figcaption></figure>
+    <figure><a class="zoomable" href="img/R4_Crew_Receipt.jpg" data-board="img/R4_Crew_Receipt.jpg" data-title="The crew receipt · each reading"><img src="img/R4_Crew_Receipt.jpg" alt="Board: a resident crew member at a facility fence checks a phone receipt; the receipt and CDPH's answer are shown beside the scene" loading="lazy"></a><figcaption><b>The crew receipt · each reading</b>A verified reading moves the inspection list, and CDPH owes an answer by a set date.</figcaption></figure>
+  </div>
+  <p class="caption">Concept prototypes with example numbers and names. Coming next: the agency view of the base map, and a department-level mock budget.</p>
+</section>
+
+<section id="budget">
+  <div class="label">Part IV · What it costs</div>
+  <h2>More capacity, without a much bigger budget</h2>
+  <p>This is the mock budget for the Council audience. The question isn't "how much does the commons cost?" It's "what would it cost to get the same capacity the usual way, by hiring more people, buying more sensors and running more flights?" The numbers are rough estimates sized from what we found. The point is the comparison, not the decimals.</p>
+
+  <div class="bstory">
+    <div class="card warn"><div class="n">1 · The cliff</div><h3>The sensor grant ran out</h3><p>Open Air Chicago's 277 sensors launched on more than $4M, and the $2M federal grant behind them ended in September. CDPH has three air inspectors and a shrinking budget.</p></div>
+    <div class="card"><div class="n">2 · What's missing</div><h3>Readings where the harm is</h3><p>Fixed sensors can't follow a dust plume down a fence line. Inspections still mostly start with a complaint, and the most burdened blocks often complain least.</p></div>
+    <div class="card"><div class="n">3 · The usual way</div><h3>Hire, buy and fly it yourself</h3><p>More inspectors, a city drone fleet with its own pilots, and every department contracting its own flights. It works, but each piece is paid for separately.</p></div>
+    <div class="card"><div class="n">4 · The commons way</div><h3>Ride on flights already happening</h3><p>City pods ride on delivery drones, operators earn credits instead of cash, paid resident crews check the readings, and every department reads from one platform.</p></div>
+    <div class="card warn"><div class="n">5 · What it doesn't fix</div><h3>It's not a deficit fix</h3><p>It doesn't close the city's budget gap or replace inspectors. It buys capacity the city can't afford the usual way.</p></div>
+  </div>
+
+  <p class="print-only pnote">Figures shown are for year 3, citywide. The web version also shows the pilot year.</p>
+  <div class="bctl" role="group" aria-label="Budget phase">
+    <button type="button" data-ph="pilot" aria-pressed="true">Pilot year · two community areas</button>
+    <button type="button" data-ph="city" aria-pressed="false">Year 3 · citywide</button>
+  </div>
+
+  <h3 style="margin-top:6px">What residents and agencies get</h3>
+  <p style="font-size:14.5px;color:var(--muted)">These are target service levels, the same under both approaches. Only the cost of getting there is different.</p>
+  <div class="cap" id="bCap"></div>
+
+  <h3 style="margin-top:26px">The same capacity, two ways</h3>
+  <div class="bsave" id="bTotals"></div>
+  <p id="bNote" style="font-size:14.5px"></p>
+
+  <div class="blegend"><span><i style="background:#7A8896"></i>The usual way</span><span><i style="background:#2B5FAE"></i>The commons way</span><span style="color:var(--muted)">Millions of dollars per year</span></div>
+  <div class="bchart" id="bchart"><div id="bLines"></div><div class="btip" id="btip" role="tooltip"></div></div>
+
+  <details class="more" style="margin-top:14px"><summary>How each line is reached, as a table</summary><div class="inner"><div class="tscroll"><table class="btable">
+    <thead><tr><th>Capacity</th><th>The usual way</th><th>The commons way</th><th>Usual</th><th>Commons</th></tr></thead>
+    <tbody id="bRows"></tbody>
+    <tfoot id="bFoot"></tfoot>
+  </table></div></div></details>
+
+  <h3 style="margin-top:26px">What not acting already costs</h3>
+  <p style="font-size:14.5px">Most of these costs don't show up in the city's budget. Families, hospitals and Medicaid pay them. The city feels them through ambulance runs, missed school days and its own employee health plan.</p>
+  <div class="grid g3" style="margin-top:10px">
+    <div class="card stat"><div class="big">8,848</div><div class="what">asthma ER visits by Chicago children in one year, about two-thirds of them by Black children</div><div class="src"><a href="https://resphealth.org/wp-content/uploads/2025/07/Asthma-Report-Final.pdf" target="_blank" rel="noopener">Respiratory Health Association, 2018 (2015 data)</a></div></div>
+    <div class="card stat"><div class="big">$18.7M</div><div class="what">in hospital charges for those visits, about $2,100 each; $6.1M of it from racial gaps alone</div><div class="src"><a href="https://resphealth.org/wp-content/uploads/2025/07/Asthma-Report-Final.pdf" target="_blank" rel="noopener">Respiratory Health Association, 2018</a></div></div>
+    <div class="card stat"><div class="big">$3.7B</div><div class="what">a year in health costs, and about 340 deaths, from diesel soot across the Chicago region</div><div class="src"><a href="https://www.yahoo.com/news/chicago-ranks-3rd-us-deaths-182700281.html" target="_blank" rel="noopener">Clean Air Task Force, via Chicago Tribune, Jan 2022</a></div></div>
+  </div>
+  <div class="card" style="margin-top:14px;border-left:4px solid var(--res)"><b style="color:var(--navy)">Is it worth it?</b> <span id="bWorth"></span></div>
+
+  <h3 style="margin-top:26px">Where the new money comes from</h3>
+  <div class="tscroll"><table class="btable">
+    <thead><tr><th>Source</th><th>How</th><th>Per year</th></tr></thead>
+    <tbody id="bSrc"></tbody>
+  </table></div>
+  <p style="font-size:13.5px;color:var(--muted);margin-top:8px">Facilities near the sensors pay for their own monitoring under their permits. That cost sits with them, outside the city budget, and their data is one of the checks.</p>
+
+  <div class="bnot"><h3>What this budget doesn't do</h3><ul>
+    <li>It doesn't touch the $882M gap projected for 2027. It's a small line that buys capacity the city can't afford the usual way.</li>
+    <li>It doesn't replace inspectors. CDPH still has three; the commons sends them where burden is highest, and paid crews extend their reach.</li>
+    <li>The savings depend on operators flying here. If hubs move outside the city line, the anchor sensors and crews carry the load alone, and the usual-way costs come back.</li>
+    <li>One budget line is one target. If it's cut, every department loses its view of the sky at once.</li>
+  </ul></div>
+
+  <details class="more" style="margin-top:14px"><summary>How we sized these numbers</summary><div class="inner" style="font-size:14px">
+    <p>Every figure here is a rough estimate for a class project, sized from public sources:</p>
+    <ul>
+      <li><b>Inspectors.</b> CDPH's Senior Environmental Inspector posting starts at $73,140 (<a href="https://diversityjobs.com/career/13782620/Senior-Environmental-Inspector-Illinois-Chicago" target="_blank" rel="noopener">City of Chicago posting, Aug 2025</a>). We used about $100K a year with benefits.</li>
+      <li><b>Sensors.</b> Professional-grade low-cost sensors run about $500–$5,000 per unit-year all-in; reference monitors cost $15,000–$40,000 plus more than $15,000 a year to run (<a href="https://www.clarity.io/blog/cost-of-air-quality-monitoring-a-pricing-guide-for-cities-agencies" target="_blank" rel="noopener">Clarity pricing guide</a>, a vendor source).</li>
+      <li><b>Flights.</b> A worked example puts an in-house drone program at about $114 per flight hour for aircraft, sensors and overhead, plus pilot time (<a href="https://www.commercialuavnews.com/drone-cost-per-flight-hour-buy-data-vs-own-program" target="_blank" rel="noopener">Commercial UAV News, Oct 2026</a>). Docked fleets bring that down, which is why we sized the city fleet from Cincinnati's numbers instead.</li>
+      <li><b>Benefits and pensions.</b> Chicago's 2025 budget put $2.9B toward pensions and $758M toward employee health and insurance, across about 36,000 budgeted positions (<a href="https://civicfed.org/blog/chicagos-budget-growth-2019-2025" target="_blank" rel="noopener">Civic Federation, Oct 2025</a>). Much of the pension cost pays for past service, so we loaded new city staff at about 1.6 times salary: roughly $120K a year for an inspector.</li>
+      <li><b>A city drone fleet.</b> Cincinnati's 22 docked police drones cost about $62,000 each with dock, training and warranty, plus about $450,000 a year in software and maintenance (<a href="https://news.nationgraph.com/articles/cincinnatis-22-drone-fleet-costs-less-to-run-than-a-single-police-helicopter" target="_blank" rel="noopener">NationGraph, Feb 2026</a>). Routine sensing over Chicago's burdened blocks would need about twice that fleet, plus air sensors, remote operators, rooftop sites, insurance and beyond-line-of-sight approvals. We used about $3.5M a year, with hardware replaced every four years.</li>
+      <li><b>What the city already spends or owes.</b> Keeping the sensor network running after the grant, plus the flight and inspection contracts departments already pay for. These are our assumptions, not city figures.</li>
+    </ul>
+  </div></details>
+</section>
+
+<section id="doors">
+  <div class="label">Part V · Four audiences</div>
+  <h2>The same commons, told four ways</h2>
+  <p>Each version leads with one archetype and shows that audience what it costs them, not only what they gain. These are mock materials, written the way CDPH might say it.</p>
+  <div class="grid g2" style="margin-top:12px">
+    <article class="card door ag"><div class="who ag">Council and budget · leads with 2</div><div class="say">"Build it once. Every department reads from it, and the people under it can check it."</div><dl><dt>They get</dt><dd>Monitoring paid in kind; one budget line instead of six programs</dd><dt>We ask</dt><dd>Fund the base centrally; seat the custodian board by ordinance</dd><dt>The cost</dt><dd>One budget line is one target; one breach exposes every agency</dd></dl><div class="status">Started · <a href="#budget">department-level mock budget</a> · next: a one-page Council brief</div></article>
+    <article class="card door ag"><div class="who ag">Other agencies · leads with 2</div><div class="say">"See more of the sky for less, and keep your own layer, thresholds and playbooks."</div><dl><dt>They get</dt><dd>The base map, the queue, one backup, a named arbiter</dd><dt>We ask</dt><dd>Register your purposes, share base costs, exercise together</dd><dt>The cost</dt><dd>Some discretion goes to an arbiter and an access matrix</dd></dl><div class="status">Coming · onboarding kit: what you keep, what you share</div></article>
+    <article class="card door op"><div class="who op">Operators · leads with 1</div><div class="say">"One front door, one rules feed, and a pooled weather and route picture for data you already log."</div><dl><dt>They get</dt><dd>A predictable process; credits for renewals, pad slots or fee offsets, never cash</dd><dt>We ask</dt><dd>Basic logs at city sites; optional trade; capped extras</dd><dt>The cost</dt><dd>Every ask spends goodwill; capped blocks</dd></dl><div class="status">Started · <a href="#prototypes">terms ladder and four PT-TERMS boards</a> · next: a one-page operator brief</div></article>
+    <article class="card door res"><div class="who res">Residents · leads with 3</div><div class="say">"See what flies over your block and why, ask for sensing, and decide what your sky is used for."</div><dl><dt>They get</dt><dd>The flight ledger; readings that must be answered; a binding say on cameras</dd><dt>We ask</dt><dd>Sit on a panel or join a crew, paid; file readings; challenge</dd><dt>The cost</dt><dd>A refusal can leave harm unmeasured</dd></dl><div class="status">Started · <a href="#prototypes">block card, panel ballot, crew receipt</a> · next: a short resident guide</div></article>
+  </div>
+</section>
+
+<section id="open">
+  <div class="label">Part VI · Still open</div>
+  <h2>What the design leans on</h2>
+  <ul class="open">
+    <li><span class="tag good">Precedent found</span>Permits can require monitoring. CDPH already requires facility-run continuous dust monitors (2020–21); airborne monitoring would extend that.</li>
+    <li><span class="tag good">Likely covered</span>The 2021 air quality siting review applies to warehousing and freight uses, which would likely include a delivery hub.</li>
+    <li><span class="tag mid">Defined</span>Base 1 asks only what Remote ID lacks: stored logs, planned routes, operator purpose, noise class.</li>
+    <li><span class="tag open">Open</span>Who arbitrates routine conflicts (OEMC?), and whether the city runs its own rules feed.</li>
+    <li><span class="tag open">Open</span>How panels are seated, and whether the cap reduces service in thin areas.</li>
+  </ul>
+</section>
+
+<section id="glossary">
+  <div class="label">Appendix · Glossary</div>
+  <h2>The words we use, and how we'd say them</h2>
+  <p>Three lists. Course terms frame the report and stay out of the mock materials. Project terms are our own vocabulary, each with the plain version we'd use with every audience. Agencies and acronyms covers the names that come up throughout.</p>
+  <div class="gctl">
+    <div class="tabs" role="tablist" aria-label="Glossary lists" style="margin:0">
+      <button class="tab" role="tab" aria-selected="true" data-g="course">Course terms</button>
+      <button class="tab" role="tab" aria-selected="false" data-g="project">Project terms</button>
+      <button class="tab" role="tab" aria-selected="false" data-g="acro">Agencies and acronyms</button>
+    </div>
+    <label class="gsearch"><span class="sr">Search the glossary</span><input type="search" id="gq" placeholder="Search terms" autocomplete="off"></label>
+  </div>
+  <div class="gpanel" data-g="course"><h3 class="gprint">Course terms</h3><div class="ggrid" id="gCourse"></div></div>
+  <div class="gpanel" data-g="project" hidden><h3 class="gprint">Project terms</h3><div class="ggrid" id="gProject"></div></div>
+  <div class="gpanel" data-g="acro" hidden><h3 class="gprint">Agencies and acronyms</h3><div class="tscroll"><table class="gtable"><thead><tr><th>Name</th><th>What it is</th><th>Role in the commons</th></tr></thead><tbody id="gAcro"></tbody></table></div></div>
+  <p class="gnone" id="gNone" hidden>No terms match that search.</p>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  <p><b style="color:#fff">Sources</b></p>
+  <ol>
+    <li><a href="https://www.civicfed.org/chicagos-fy2026-adopted-budget" target="_blank" rel="noopener">Civic Federation, Chicago's FY2026 Adopted Budget</a></li>
+    <li><a href="https://www.fox32chicago.com/news/chicago-mayor-brandon-johnson-faces-882m-budget-gap-heading-2027" target="_blank" rel="noopener">Fox 32, $882M budget gap heading into 2027</a></li>
+    <li><a href="https://news.wttw.com/2024/11/07/budget-chicago-s-health-department-set-drop-16-advocates-plead-more-money" target="_blank" rel="noopener">WTTW, Health Department budget set to drop 16%</a></li>
+    <li><a href="https://news.wttw.com/2025/12/31/chicago-s-2026-budget-takes-effect-forcing-chicagoans-pay-more-shopping-bags-uber-rides" target="_blank" rel="noopener">WTTW, Chicago's 2026 budget takes effect</a></li>
+    <li><a href="https://borderlessmag.org/2025/04/02/chicago-department-of-public-health-environmental-justice-pollution/" target="_blank" rel="noopener">Borderless, CDPH faces capacity hurdles</a></li>
+    <li><a href="https://kurrant.com/kurrantly-news/chicago-health-department-turns-on-277-sensor-open-air-chicago-monitoring-network/" target="_blank" rel="noopener">Kurrant, Open Air Chicago network</a></li>
+    <li><a href="https://blockclubchicago.org/2024/01/16/hilco-will-pay-12-25-million-settlement-over-2020-demolition-that-covered-little-village-in-dust/" target="_blank" rel="noopener">Block Club Chicago, Hilco settlement</a></li>
+    <li><a href="https://blockclubchicago.org/2023/12/21/heat-watch-study-finds-disproportionate-impacts-of-extreme-weather-across-city/" target="_blank" rel="noopener">Block Club Chicago, Heat Watch study</a></li>
+    <li><a href="https://abc7chicago.com/post/amazon-drone-delivery-coming-areas-surrounding-markham-matteson-fulfillment-centers-south-suburbs/18592012" target="_blank" rel="noopener">ABC7, Amazon drone delivery coming to parts of Chicago area</a></li>
+    <li><a href="https://abc7chicago.com/post/oak-brook-police-department-launches-fully-autonomous-drone-first-responder-concerned-privacy-rights/17539659/" target="_blank" rel="noopener">ABC7, Oak Brook police drone</a></li>
+    <li><a href="https://abc7chicago.com/post/flock-safety-license-plate-camera-company-halts-cooperation-federal-agencies-among-investigation-concerns-including-il/17653876/" target="_blank" rel="noopener">ABC7, Flock halts cooperation with federal agencies</a></li>
+    <li><a href="https://uavcoach.com/part-108-stuck/" target="_blank" rel="noopener">UAV Coach, Part 108 status</a></li>
+    <li><a href="https://chicago.suntimes.com/city-hall/2026/10/09/chicago-smart-streets-bus-bike-lane-violation" target="_blank" rel="noopener">Chicago Sun-Times, Smart Streets expansion</a></li>
+    <li><a href="https://thefederaldocket.com/sanchez-v-ladot-9th-cir-may-2022/" target="_blank" rel="noopener">Sanchez v. LADOT (9th Cir. 2022)</a></li>
+    <li><a href="https://chicago.gov/city/en/depts/dcd/supp_info/chicago-air-quality-ordinance.html" target="_blank" rel="noopener">City of Chicago, Air Quality Ordinance</a></li>
+    <li><a href="https://www.cleanair.com/insight/chicago-fugitive-dust-compliance-are-you-meeting-monitoring-requirements/" target="_blank" rel="noopener">Clean Air Engineering, CDPH monitoring requirements</a></li>
+  </ol>
+  <p>"Northline" in the PT-TERMS boards is a fictional operator.</p>
+</div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Annotated board"><div class="bar"><div id="lbTitle">Annotated board</div><span>Click the image to zoom</span><button type="button" id="lbClose">Close</button></div><div class="view"><img id="lbImg" alt="Annotated action situation board"></div></div>
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/budget.js" defer></script>
+<script src="assets/js/glossary.js" defer></script>
+</body>
+</html>

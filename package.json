@@ -1,0 +1,14 @@
+{
+  "name": "airspace-commons",
+  "private": true,
+  "description": "Shared Airspace Commons: a student proposal website (Complex Systems Innovation, Illinois Tech).",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "pdf": "node tools/build.mjs --pdf-only",
+    "preview": "node tools/preview.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.48.2"
+  }
+}
