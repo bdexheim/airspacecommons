@@ -97,6 +97,24 @@
     host.insertAdjacentHTML('beforeend', `<div class="sky-stage"><img class="base" src="img/sky_block.webp" alt="${alt}" loading="lazy"><svg viewBox="0 0 ${W} ${H}" aria-hidden="true">${OVERLAY}</svg><div class="hot"></div><div class="hint"></div></div><div class="sky-panel" aria-live="polite"></div>`);
     return { stage: host.querySelector('.sky-stage'), hot: host.querySelector('.hot'), hint: host.querySelector('.hint'), panel: host.querySelector('.sky-panel') };
   }
+  // Scrollytelling: the stage stays pinned while short steps scroll past it.
+  // Each step that crosses the middle of the screen calls onStep(i). Without IntersectionObserver the steps are just a list.
+  const mqWide = window.matchMedia('(min-width:1000px)');
+  function scrolly(host, s, stepsHtml, onStep) {
+    host.classList.add('is-scrolly');
+    const wrap = el(`<div class="scrolly"><div class="sc-stick"></div><div class="sc-steps">${stepsHtml.map((h, i) => `<div class="sc-step" data-i="${i}"><div class="sc-card">${h}</div></div>`).join('')}</div></div>`);
+    host.insertBefore(wrap, s.stage);
+    wrap.firstChild.append(s.stage);
+    const steps = [...wrap.querySelectorAll('.sc-step')];
+    let cur = -1;
+    const go = i => { if (i === cur) return; cur = i; steps.forEach((st, k) => st.classList.toggle('on', k === i)); onStep(i); };
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) go(+e.target.dataset.i); }), { rootMargin: '-48% 0px -48% 0px' });
+      steps.forEach(st => io.observe(st));
+    }
+    go(0);
+    return { wrap, steps, go, toStep: i => steps[i] && steps[i].scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }) };
+  }
   const momentLink = n => n ? `<a href="#sit${n}">How the commons handles it: action situation ${n} →</a>` : `<span class="gap">Not yet settled by any action situation · see <a href="#open">What has to change</a></span>`;
 
   /* ---------- Readers: who reads the sky ---------- */
@@ -115,10 +133,22 @@
     bar.append(all, clr);
     const s = stage(rh, 'Isometric illustration of one Chicago block: an industrial lot with a smokestack, rowhouses and a corner shop, a park, a clinic, a fire station, an office building with a rooftop drone pad, a bridge over a canal, the lakefront and the corner of an airport runway.');
     CLASHES.forEach(c => {
-      const b = el(`<button type="button" class="clash" data-id="${c.id}" style="${pct(c.x, c.y)}" aria-label="Collision: ${c.title}"><i></i><span>${c.short}</span></button>`);
-      b.onclick = () => { state.sel = c.id; render(); const x = document.getElementById('coll-' + c.id); x && x.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); };
+      const b = el(`<button type="button" class="clash${c.x > W * 0.7 ? ' flip' : ''}" data-id="${c.id}" style="${pct(c.x, c.y)}" aria-label="Collision: ${c.title}"><i></i><span>${c.short}</span></button>`);
+      b.onclick = () => { state.sel = c.id; render(); };
       s.hot.append(b);
     });
+    const ORDER = ['cdph', 'fire', 'avi', 'trans', 'res', 'op', 'eco'];
+    const activeFor = on => CLASHES.filter(c => c.who.every(id => on.has(id)) && (!c.needAgencies || AGENCIES.filter(a => on.has(a)).length >= c.needAgencies));
+    const collCard = c => `<div class="sc-coll"><div class="who">New collision · ${c.who.map(id => R(id).name).join(' + ')}${c.needAgencies ? ' + more than one agency' : ''}</div><h5>${c.title}</h5><p>${c.text}</p>${momentLink(c.moment)}</div>`;
+    const stepsHtml = ORDER.map((id, i) => {
+      const r = R(id), before = new Set(ORDER.slice(0, i)), after = new Set(ORDER.slice(0, i + 1));
+      const fresh = activeFor(after).filter(c => !activeFor(before).some(b => b.id === c.id));
+      return `<div class="sc-k">Reader ${i + 1} of ${ORDER.length}</div><h4><i style="background:${r.c}"></i>${r.name}</h4><p>${r.text}</p>`
+        + (fresh.length ? fresh.map(collCard).join('') : `<p class="sc-none">${i ? 'No new collision yet.' : 'Alone, CDPH has the sky to itself.'}</p>`)
+        + `<div class="sc-count"><b>${activeFor(after).length}</b> ${activeFor(after).length === 1 ? 'collision' : 'collisions'} so far</div>`;
+    });
+    const n = CLASHES.length, open = CLASHES.filter(c => !c.moment).length;
+    stepsHtml.push(`<div class="sc-k">All seven readers</div><h4>${n} collisions, one sky</h4><p>${n - open} of them are settled by a moment in chapter 3. ${open === 1 ? 'One is' : open + ' are'} still open. Turn readers on and off to explore, or pick a yellow marker.</p><div class="sc-barslot"></div>`);
     const active = () => CLASHES.filter(c => c.who.every(id => state.on.has(id)) && (!c.needAgencies || AGENCIES.filter(a => state.on.has(a)).length >= c.needAgencies));
     function render() {
       bar.querySelectorAll('.sky-chip').forEach(b => b.setAttribute('aria-pressed', state.on.has(b.dataset.id)));
@@ -133,6 +163,11 @@
         : `<div class="empty">The parts we first called "shared" turned out to be where readers collide. ${state.on.size < 2 ? 'Add a reader to find the first one.' : "These readers don't overlap yet. Try another."}</div>`}</div></div>`;
     }
     render();
+    const sc = scrolly(rh, s, stepsHtml, i => { state.on = new Set(ORDER.slice(0, i + 1)); if (i >= ORDER.length) state.on = new Set(ORDER); const prevOn = new Set(ORDER.slice(0, i)); const fresh = activeFor(state.on).filter(c => !activeFor(prevOn).some(b => b.id === c.id)); state.sel = i < ORDER.length && fresh[0] ? fresh[0].id : null; render(); });
+    // the reader chips sit with the map on wide screens and in the last step on narrow ones
+    const slot = sc.wrap.querySelector('.sc-barslot'), minis = el(`<div class="sc-minis"></div>`);
+    const placeBar = () => { if (mqWide.matches) { sc.wrap.querySelector('.sc-stick').prepend(bar); minis.append(all, clr); slot.append(minis); } else { bar.append(all, clr); slot.append(bar); } };
+    placeBar(); mqWide.addEventListener ? mqWide.addEventListener('change', placeBar) : mqWide.addListener(placeBar);
     window.__skyAll = () => { READERS.forEach(r => state.on.add(r.id)); state.sel = null; render(); };
     // print-only table: every collision and the moment that settles it
     const tb = document.getElementById('skyClashTable');
@@ -145,9 +180,14 @@
     let cur = 1;
     const s = stage(yh, 'The same block with six numbered pins, one for each action situation in the year.');
     s.stage.classList.add('year');
+    const card = m => { const settles = CLASHES.filter(c => c.moment === m.n);
+      return `<div class="sc-k">Action situation ${m.n} · ${m.verb} · ${m.tm}</div><h4>${m.title}</h4><p>${m.line}</p>`
+        + (settles.length ? `<p class="small">Settles: ${settles.map(c => c.title.toLowerCase()).join('; ')}.</p>` : `<p class="small">Settles no collision; it keeps the others running when the sky closes.</p>`)
+        + `<div class="ylinks"><a class="bbtn" href="#sit${m.n}">Read the moment ↓</a><a class="bbtn ghostb" href="#anatomy" data-as="${m.as}">See what it activates</a></div>`; };
+    const sc = scrolly(yh, s, MOMENTS.map(card), i => { cur = i + 1; render(); });
     MOMENTS.forEach(m => {
       const b = el(`<button type="button" class="pin" data-n="${m.n}" style="${pct(m.x, m.y)}" aria-label="Action situation ${m.n}: ${m.title}"><b>${m.n}</b><span>${m.title}</span></button>`);
-      b.onclick = () => { cur = m.n; render(); };
+      b.onclick = () => { cur = m.n; render(); sc.toStep(m.n - 1); };
       s.hot.append(b);
     });
     function render() {
