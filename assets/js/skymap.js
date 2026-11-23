@@ -115,7 +115,7 @@
     go(0);
     return { wrap, steps, go, toStep: i => steps[i] && steps[i].scrollIntoView({ block: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }) };
   }
-  const momentLink = n => n ? `<a href="#sit${n}">How the commons handles it: action situation ${n} →</a>` : `<span class="gap">Not yet settled by any action situation · see <a href="#open">What has to change</a></span>`;
+  const momentLink = n => n ? `<a href="#sit${n}">How the commons handles it: action situation ${n} →</a>` : `<span class="gap">Not yet settled by any action situation · see <a href="#still-open">what\'s still open</a></span>`;
 
   /* ---------- Readers: who reads the sky ---------- */
   const rh = document.getElementById('skyReaders');

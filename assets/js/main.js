@@ -163,7 +163,8 @@ const el=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.set
 const gBands=el("g",{},svg),gLinks=el("g",{},svg),gHL=el("g",{class:"hl"},svg),gNodes=el("g",{},svg);
 function arcPath(r1,r2,t1,t2){const [a,b]=pos(r2,t1),[c,d]=pos(r2,t2),[e,f]=pos(r1,t2),[g,h]=pos(r1,t1);const L=(t2-t1)>Math.PI?1:0;
   return `M${a},${b}A${r2},${r2} 0 ${L} 1 ${c},${d}L${e},${f}A${r1},${r1} 0 ${L} 0 ${g},${h}Z`}
-function curve(a,b){const [x1,y1]=XY[a],[x2,y2]=XY[b];const mx=(x1+x2)/2,my=(y1+y2)/2;const cx=mx+(C-mx)*.18,cy=my+(C-my)*.18;return `M${x1},${y1}Q${cx},${cy} ${x2},${y2}`}
+const IN={};// inner end of each impact label
+function curve(a,b){const [x1,y1]=(I[a]&&G[b]&&IN[a])||XY[a],[x2,y2]=(G[a]&&I[b]&&IN[b])||XY[b];const mx=(x1+x2)/2,my=(y1+y2)/2;const cx=mx+(C-mx)*.18,cy=my+(C-my)*.18;return `M${x1},${y1}Q${cx},${cy} ${x2},${y2}`}
 // static rings
 el("circle",{cx:C,cy:C,r:R_A,fill:"none",stroke:"var(--faint)","stroke-width":70},gBands);
 el("circle",{cx:C,cy:C,r:R_I,fill:"none",stroke:"var(--faint)","stroke-width":1.2,"stroke-dasharray":"2 4"},gBands);
@@ -176,7 +177,6 @@ function drawBands(arcs){bandG.innerHTML="";arcs.forEach(([k,t1,t2])=>{if(t2<=t1
 // base links
 const baseLinks=[];
 function link(a,b,cls){const p=el("path",{d:curve(a,b),class:"lnk "+(cls||"")},gLinks);baseLinks.push({a,b,p});return p}
-Object.values(I).forEach(m=>{m.driven.forEach(a=>A[a]&&link(a,m.id,m.un?"ug":""));m.serves.forEach(g=>link(m.id,g));m.against.forEach(g=>link(m.id,g,"ug"))});
 const outerLinks=el("g",{},gLinks);
 function drawOuterLinks(){outerLinks.innerHTML="";
   if(state.ring==="feat") fIds.forEach(f=>F[f].pa&&el("path",{d:curve(f,F[f].pa),class:"lnk",opacity:.35},outerLinks));
@@ -202,9 +202,12 @@ Object.values(I).forEach(m=>{const [x,y]=XY[m.id];const g=node(m.id,el("g",{},gN
   el("text",{x,y:y+.5,"text-anchor":"middle","dominant-baseline":"middle",class:"glyph",fill:m.un?"var(--risk)":"#fff"},g).textContent=gl;
   // radial inward label
   const t=impAng[m.id],deg0=t/deg,flip=Math.cos(t)<0;const short=m.name.replace(/^(Decreased|Increased) /,"");
-  const lines=wrapLines(short,24).slice(0,2);const r0=R_I-20;
-  lines.forEach((ln,i)=>{const off=(i-(lines.length-1)/2)*10;const [lx,ly]=pos(r0,t);const nx=-Math.sin(t)*off,ny=Math.cos(t)*off;
-    el("text",{x:lx+nx,y:ly+ny,"text-anchor":flip?"start":"end","dominant-baseline":"middle",class:"lbl-i",fill:m.un?"var(--risk)":"",transform:`rotate(${flip?deg0+180:deg0},${lx+nx},${ly+ny})`},g).textContent=ln})});
+  const lines=wrapLines(short,22);const r0=R_I-20;let wmax=0;
+  lines.forEach((ln,i)=>{const off=(i-(lines.length-1)/2)*11*(flip?-1:1);const [lx,ly]=pos(r0,t);const nx=-Math.sin(t)*off,ny=Math.cos(t)*off;
+    const tx=el("text",{x:lx+nx,y:ly+ny,"text-anchor":flip?"start":"end","dominant-baseline":"middle",class:"lbl-i",fill:m.un?"var(--risk)":"",transform:`rotate(${flip?deg0+180:deg0},${lx+nx},${ly+ny})`},g);tx.textContent=ln;
+    let w=0;try{w=tx.getComputedTextLength()}catch(e){}wmax=Math.max(wmax,w||ln.length*5.6)});
+  IN[m.id]=pos(Math.max(R_G+64,r0-wmax-8),t)});
+Object.values(I).forEach(m=>{m.driven.forEach(a=>A[a]&&link(a,m.id,m.un?"ug":""));m.serves.forEach(g=>link(m.id,g));m.against.forEach(g=>link(m.id,g,"ug"))});
 // affordances
 Object.values(A).forEach(a=>{const [x,y]=XY[a.id];const g=node(a.id,el("g",{},gNodes));g.setAttribute("aria-label","Affordance: "+a.name);
   el("circle",{cx:x,cy:y,r:31,fill:"var(--aff)",stroke:"var(--ink)","stroke-width":isNew(a.change)?1.4:0,"stroke-dasharray":"3 2",class:"shape"},g);

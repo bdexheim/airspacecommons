@@ -8,15 +8,17 @@
   const TRACKS = [
     { id: 'op', who: 'Operators', tab: "An operator's year", intro: 'Operators pay in data, not money. One signature a year, then software follows the terms on every flight, and a person only sees what is new.',
       steps: [
+        { src: 'img/M_Operator_Brief.jpg', when: 'Before signing', title: 'The operator brief', page: ['materials.html#operator-brief', 'Read the brief'] },
         { src: 'img/O1_Terms_Ladder.jpg', when: 'Signed yearly', title: 'The terms ladder' },
         { src: 'img/PT-TERMS_InUse_2.jpg', when: 'Once a year', title: 'Signing' },
         { src: 'img/PT-TERMS_InUse_1.jpg', when: 'Every flight', title: 'The dispatch room' },
         { src: 'img/PT-TERMS_The_Exchange.jpg', when: 'Every flight', title: 'The exchange' },
-        { src: 'img/PT-TERMS_InUse_3.jpg', when: 'Rarely', title: 'On the block', other: ['res', 0, "See the resident's side: the block card"] }
+        { src: 'img/PT-TERMS_InUse_3.jpg', when: 'Rarely', title: 'On the block', other: ['res', 1, "See the resident's side: the block card"] }
       ] },
     { id: 'res', who: 'Residents', tab: "A resident's month", intro: 'Read it, question it, decide it. A card every month, readings the city has to answer, and a public vote whenever someone wants a new use.',
       steps: [
-        { src: 'img/R1_Block_Card.jpg', when: 'Monthly', title: 'The block card', other: ['op', 4, "See the operator's side: the same notice"] },
+        { src: 'img/M_Resident_Guide.jpg', when: 'When the hub opens', title: 'The resident guide', page: ['materials.html#resident-guide', 'Read the guide'] },
+        { src: 'img/R1_Block_Card.jpg', when: 'Monthly', title: 'The block card', other: ['op', 5, "See the operator's side: the same notice"] },
         { src: 'img/R4_Crew_Receipt.jpg', when: 'Each reading', title: 'The crew receipt' },
         { src: 'img/R3_Panel_Ballot.jpg', when: 'When asked', title: 'The panel ballot' }
       ] }
@@ -39,7 +41,7 @@
       <div class="iu-side" aria-live="polite">
         <div class="iu-k"></div><h4 class="iu-title"></h4><p class="iu-text"></p>
         <div class="iu-nav"><button type="button" class="iu-prev" aria-label="Previous">←</button><span class="iu-pos"></span><button type="button" class="iu-next" aria-label="Next">→</button></div>
-        <div class="iu-links"><a class="iu-full" href="#">Open full size</a><a class="iu-other" href="#"></a></div>
+        <div class="iu-links"><a class="iu-page" href="#"></a><a class="iu-full" href="#">Open full size</a><a class="iu-other" href="#"></a></div>
       </div>
     </div>`;
   document.getElementById('prototypes').classList.add('has-inuse');
@@ -62,6 +64,7 @@
     $('.iu-text').textContent = st.text;
     $('.iu-pos').textContent = `${i + 1} of ${t.steps.length}`;
     $('.iu-prev').disabled = i === 0; $('.iu-next').disabled = i === t.steps.length - 1;
+    const pg = $('.iu-page'); if (st.page) { pg.hidden = false; pg.href = st.page[0]; pg.textContent = st.page[1] + ' →'; } else pg.hidden = true;
     const o = $('.iu-other');
     if (st.other) { o.hidden = false; o.textContent = st.other[2] + ' →'; o.dataset.t = st.other[0]; o.dataset.k = st.other[1]; } else o.hidden = true;
     const rb = $(`.iu-rail button[data-k="${i}"]`), rail = $('.iu-rail');

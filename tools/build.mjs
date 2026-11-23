@@ -15,9 +15,9 @@ const ROOT = resolve(import.meta.dirname, '..');
 const OUT = resolve(ROOT, '_site');
 const pdfOnly = process.argv.includes('--pdf-only');
 const SITE_URL = process.env.SITE_URL || '';
-const COPY = ['index.html', 'archetypes.html', 'assets', 'img', 'prototypes', 'report', '.nojekyll'];
-// Pages in the PDF, in order. The in-depth page follows the story as an appendix.
-const PAGES = [['index.html', 'Shared Airspace Commons'], ['archetypes.html', 'The archetypes in depth']];
+const COPY = ['index.html', 'archetypes.html', 'materials.html', 'assets', 'img', 'prototypes', 'report', '.nojekyll'];
+// Pages in the PDF, in order. The in-depth page and the audience materials follow the story as appendices.
+const PAGES = [['index.html', 'Shared Airspace Commons'], ['archetypes.html', 'The archetypes in depth'], ['materials.html', 'Audience materials']];
 
 async function copySite() {
   await rm(OUT, { recursive: true, force: true });
