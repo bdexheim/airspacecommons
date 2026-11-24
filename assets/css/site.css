@@ -220,7 +220,7 @@ footer li{break-inside:avoid;margin-bottom:4px}
 .chap.flip .shot{order:2}
 .chap.flip{grid-template-columns:minmax(0,1fr) minmax(0,1.55fr)}
 @media (max-width:860px){.chap{grid-template-columns:1fr;gap:16px}.chap.flip .shot{order:0}}
-.chap .shot{position:relative;display:block;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#F4F2EE}
+.chap .shot{position:relative;display:block;border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
 .chap .shot img{display:block;width:100%;height:auto}
 .chap .shot .open{position:absolute;right:10px;bottom:10px;background:var(--navy);color:#fff;font-size:12.5px;font-weight:700;padding:6px 10px;border-radius:3px;opacity:.92}
 .chap .fnl{display:flex;align-items:center;gap:10px;font-weight:700;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--sky)}
@@ -312,12 +312,10 @@ footer li{break-inside:avoid;margin-bottom:4px}
   section{padding-top:18px!important}
   h2{break-after:avoid}h3{break-after:avoid}
   .card,.gcard,.chap,tr,.capr,.lrow,figure,img,.bstory .card{break-inside:avoid}
-  .chap{grid-template-columns:1fr!important}
-  .chap.flip > :first-child{order:0}
   a{text-decoration:none}
   .tscroll{overflow:visible!important}
   table{min-width:0!important}
-  footer{break-before:page}
+  footer{margin-top:24px}
   footer ol{columns:2}
   .btip{display:none!important}
   .ggrid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -661,7 +659,9 @@ footer ol.fw{margin-bottom:18px}
 @media (min-width:1100px){
   #commons .tabpanel:not([hidden]){display:grid;grid-template-columns:250px minmax(0,1fr);gap:24px;align-items:start}
   #commons .tabpanel .arch-sum{grid-template-columns:1fr;border-bottom:0;border-right:1px solid var(--line);padding:0 20px 0 0;margin:0;position:sticky;top:calc(var(--navh,60px) + 12px)}
-  #commons .tabpanel .arch-sum dl{grid-template-columns:1fr}
+  #commons .tabpanel .arch-sum{display:block}
+  #commons .tabpanel .arch-sum dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto;grid-auto-flow:column;gap:2px 22px;margin:0}
+  #commons .tabpanel .arch-sum dd{margin:0}
   #commons .tabpanel .arch-sum dd{margin-bottom:8px}
   #commons .tabpanel img{max-height:calc(var(--fit) - 70px)}
 }
@@ -949,7 +949,7 @@ body{font-size:16px}
   .cases{row-gap:0}
   .cases .case{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0;margin-bottom:16px}
   .cases .case .body{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:8px;gap:8px}
-  .cases .case .add{align-self:start}
+  .cases .case .add{align-self:stretch}
 }
 /* Arriving and warnings: one grid, so each pair of items shares a row */
 .news .item{grid-template-columns:104px minmax(0,1fr);gap:16px;padding:14px 0}
@@ -972,3 +972,74 @@ body{font-size:16px}
 /* year steps: the two actions sit side by side */
 .sc-card .ylinks{display:flex;flex-wrap:wrap;gap:8px}
 @media (max-width:560px){.news .item{grid-template-columns:72px minmax(0,1fr);gap:12px}.news .item img{width:72px;height:72px}}
+/* hero byline: the team, one name per span so no name ever breaks */
+.mast .byline{display:flex;flex-wrap:wrap;gap:4px 0;margin:-2px 0 16px;font-size:16px;font-weight:600;color:#DCE6F0}
+.mast .byline span{white-space:nowrap}
+.mast .byline span+span::before{content:"·";margin:0 10px;color:#9FD3F0}
+footer .team{color:#fff;font-weight:600;margin-bottom:14px}
+
+/* ---------- Print layout: fuller pages ---------- */
+@media print{
+  /* moments: picture beside text, so two fit on a page */
+  .chap{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)!important;gap:16px;padding:12px 0;align-items:start}
+  .chap.flip .shot{order:0}
+  .chap .shot img{max-height:3.6in;width:100%;object-fit:contain}
+  .chap .shot .open{display:none}
+  .chap h3{font-size:15pt}.chap p{font-size:9.5pt;margin-bottom:5px}
+  .chap .trc,.chap .meet{font-size:8.5pt}
+  /* pages made by the layout pass */
+  .pbreak{break-before:page!important}
+  /* appendix title blocks stay compact so content follows on the same page */
+  .mast.mast-sub .wrap{padding-block:14px}
+  .mast.mast-sub h1{font-size:24pt;margin:4px 0 6px}
+  .mats .mast,.mats .stripes{display:none}
+}
+@media print{
+  /* nothing may be wider than the page, or Chromium shrinks the whole document */
+  .btable{table-layout:fixed;width:100%}
+  .btable td,.btable th{white-space:normal!important;overflow-wrap:break-word}
+  .btable td:nth-child(3),.btable th:nth-child(3){text-align:left}
+  .btable th:first-child{width:22%}
+  .btable thead tr th:nth-child(n+4){width:11%}
+}
+@media print{
+  .mast .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)!important;gap:20px;align-items:start}
+  .mast:not(.mast-sub) h1{font-size:30pt}
+  .mast p{font-size:10.5pt}
+  .hero-shot img{box-shadow:none}
+  .chapter:first-child .chap-open{break-before:page}
+}
+@media print{
+  /* the printed page is 725px wide, so narrow-screen collapses would fire: keep the desktop columns */
+  .grid.g3,.conds,.steps3,.cases{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .grid.g2,.stand,.cols,.commons2{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .grid.g4{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+  .steps3>div{border-right:1px solid var(--line);border-bottom:0;padding:12px}
+  .steps3>div:last-child{border-right:0}
+  .card{padding:10px 12px}
+  .card p,.card li,.card dd{font-size:9.5pt}
+  .cases .case .shot img,.cases .case img{max-height:1.7in;object-fit:contain}
+  /* archetype panels: one per page, summary across the top, diagram full width */
+  #commons .tabpanel,#commons .tabpanel[hidden]{display:block!important;break-inside:avoid;margin-bottom:14px}
+  #commons .tabpanel .arch-sum{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px 14px;border:0;border-bottom:1px solid var(--line);padding:0 0 8px;margin:0 0 10px;font-size:9pt;position:static}
+  #commons .tabpanel .arch-sum{display:block}
+  #commons .tabpanel .arch-sum dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto;grid-auto-flow:column;gap:2px 22px;margin:0}
+  #commons .tabpanel .arch-sum dd{margin:0}
+  #commons .tabpanel img{display:block;max-height:3.3in;max-width:100%;width:auto;margin:0 auto}
+  #commons .tabpanel .zoomable{width:auto}
+  .deep td,.deep th{padding-top:3px!important;padding-bottom:3px!important}
+  .deep .card{padding:8px 10px}
+  /* hero fits page 1 */
+  .mast .wrap{padding-block:14px!important}
+  .mast:not(.mast-sub) h1{font-size:26pt;margin:6px 0 6px}
+  .mast .byline{margin:0 0 8px;font-size:10pt}
+  .mast .links{margin:12px 0 4px}
+  .mast .howto{margin-top:10px;font-size:9.5pt}
+  .plink{font-size:9pt!important;margin-top:8px!important}
+  /* footer: ink on white, flows after the glossary */
+  footer{background:#fff!important;color:var(--text)!important;border-top:3px solid var(--navy);font-size:8.5pt;margin-top:18px}
+  footer .wrap{padding-block:12px 0}
+  footer a,footer b{color:var(--navy)!important}
+  footer .team{color:var(--navy)}
+  footer li{margin-bottom:2px}
+}

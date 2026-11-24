@@ -1,6 +1,6 @@
 # Shared Airspace Commons
 
-A student proposal for Chicago's low airspace, built for Complex Systems Innovation at Illinois Tech by Brian, Ming and Pratyusha.
+A student proposal for Chicago's low airspace, built for Complex Systems Innovation at Illinois Tech by Brian Dexheimer, Ruoming Xin and Pratyusha Vellala.
 
 **Hypothetical class work.** Not affiliated with, endorsed by or produced by the City of Chicago or the Chicago Department of Public Health.
 

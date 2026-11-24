@@ -1,6 +1,6 @@
 # Shared Airspace Commons · notes for Claude Code
 
-A student proposal website for Complex Systems Innovation at Illinois Tech (team: Brian, Ming, Pratyusha). It argues that Chicago should treat its low airspace as a shared commons: operators pay their way in data instead of fees, many agencies read from one picture, and residents can see, question and refuse. CDPH moves in first.
+A student proposal website for Complex Systems Innovation at Illinois Tech (team: Brian Dexheimer, Ruoming Xin, Pratyusha Vellala). It argues that Chicago should treat its low airspace as a shared commons: operators pay their way in data instead of fees, many agencies read from one picture, and residents can see, question and refuse. CDPH moves in first.
 
 The audience is professors and classmates. It is **hypothetical class work** and is not affiliated with the City of Chicago or CDPH.
 
@@ -9,7 +9,7 @@ The audience is professors and classmates. It is **hypothetical class work** and
 - **Git:** the owner runs every git command. Suggest commands (with a short commit message) but never run `git` yourself.
 - **Disclaimer:** keep the red "Hypothetical class project" notice at the top of every page, and keep the "not a City of Chicago or CDPH document" line on boards and in the PDF footer.
 - **No impersonation:** no City or CDPH logos, seals or official templates; the look is "civic, Chicago-inspired", not a copy. Don't put photos of real public figures on the site.
-- **People:** first names only (Brian, Ming, Pratyusha). No week numbers or "Week 11" references in public-facing text.
+- **People:** the team by full name (Brian Dexheimer, Ruoming Xin, Pratyusha Vellala); anyone else in examples, first names or none. No week numbers or "Week 11" references in public-facing text.
 - **Facts:** anything about the world as it is now (budgets, rules, programs) carries a linked source. Mock numbers are labeled as estimates in the "How we sized these numbers" note, not one by one.
 
 ## Voice

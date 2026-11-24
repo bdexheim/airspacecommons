@@ -10,6 +10,9 @@ import { pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
 import { PDFDocument } from 'pdf-lib';
 import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
+const PAGINATE = readFileSync(new URL('./paginate.js', import.meta.url), 'utf8').trim().replace(/^\/\/.*\n/gm, '').replace(/\)\s*$/, ')').replace(/^\(/, '(').trim();
 
 const ROOT = resolve(import.meta.dirname, '..');
 const OUT = resolve(ROOT, '_site');
@@ -23,6 +26,17 @@ async function copySite() {
   await rm(OUT, { recursive: true, force: true });
   await mkdir(OUT, { recursive: true });
   for (const p of COPY) if (existsSync(resolve(ROOT, p))) await cp(resolve(ROOT, p), resolve(OUT, p), { recursive: true });
+  // Stamp each stylesheet and script link with a hash of its contents, so browsers and the Pages CDN never serve a stale copy.
+  for (const page of ['index.html', 'archetypes.html', 'materials.html']) {
+    const f = resolve(OUT, page); if (!existsSync(f)) continue;
+    let html = await readFile(f, 'utf8');
+    const refs = [...new Set([...html.matchAll(/(?:href|src)="(assets\/(?:css|js)\/[^"?]+)"/g)].map(m => m[1]))];
+    for (const r of refs) {
+      const v = createHash('sha1').update(await readFile(resolve(ROOT, r))).digest('hex').slice(0, 8);
+      html = html.replaceAll('"' + r + '"', '"' + r + '?v=' + v + '"');
+    }
+    await writeFile(f, html);
+  }
 }
 
 async function renderPage(browser, srcDir, file, title) {
@@ -44,6 +58,11 @@ async function renderPage(browser, srcDir, file, title) {
   await page.evaluate(() => document.fonts.ready);
   await page.waitForTimeout(600);
   await page.emulateMedia({ media: 'print' });
+  // Preview pagination at the printed page size and adjust breaks so sections start cleanly and pages stay full.
+  await page.setViewportSize({ width: 725, height: 946 });
+  await page.waitForTimeout(300);
+  const layout = await page.evaluate(`(${PAGINATE})({ PW: 725.3, PH: 946.4 })`);
+  if (layout.length) console.log(file + ': ' + layout.join('; '));
   const live = SITE_URL ? ' · live version: ' + SITE_URL.replace(/^https?:\/\//, '') : '';
   const bytes = await page.pdf({
     format: 'Letter', printBackground: true, displayHeaderFooter: true,
