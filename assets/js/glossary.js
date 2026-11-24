@@ -14,7 +14,7 @@ const COURSE=[
 ['Impact, intended or unintended','AOI','A change in the socio-technical system','21 intended, 10 unintended','What changes, and side effects'],
 ['Check','Our method, on the AOI','What keeps an unintended impact in bounds; usually supplied by a different archetype','7 of 10 risks are held by another archetype','What keeps it fair'],
 ['Activation','AOI','One moment traced across the rings, from feature to goal','The explorer\'s action situations','What switches on'],
-['Visible and invisible layers','Our snapshot method, after Star','What a resident sees versus what runs behind it; infrastructure is invisible until it breaks','Every action situation board','Seen on the street, and runs behind it'],
+['Visible and invisible layers','Our snapshot method','What a resident sees versus what runs behind it; infrastructure is invisible until it breaks','Every action situation board','Seen on the street, and runs behind it'],
 ['Commons','Ostrom','A shared resource governed by rules its users help set','The shared airspace commons','The proper name, once chosen']
 ];
 const AUD=['Council and budget','Agencies','Operators','Residents'];

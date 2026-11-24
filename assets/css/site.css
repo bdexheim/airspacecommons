@@ -935,3 +935,40 @@ h2{font-weight:700;font-size:clamp(24px,2.7vw,31px);line-height:1.15;letter-spac
   .mats footer{display:none}
 }
 .sheet .sh-note,.sheet .sh-dek{max-width:none}
+
+/* ---------- Craft pass: calmer type, aligned rows ---------- */
+body{font-size:16px}
+.lead{font-size:18px}
+.card p,.card li,.card dd{font-size:15px}
+.door .say{font-size:17px}
+/* Chapter 1 cases: every part sits on a shared row, so the "Instead" boxes line up across the three cards */
+.cases .case h4{font-size:17px;margin:0}
+.cases .case p{font-size:15px;margin:0}
+.cases .case .add{font-size:14.5px}
+@supports (grid-template-rows:subgrid){
+  .cases{row-gap:0}
+  .cases .case{display:grid;grid-row:span 5;grid-template-rows:subgrid;row-gap:0;margin-bottom:16px}
+  .cases .case .body{display:grid;grid-row:span 4;grid-template-rows:subgrid;row-gap:8px;gap:8px}
+  .cases .case .add{align-self:start}
+}
+/* Arriving and warnings: one grid, so each pair of items shares a row */
+.news .item{grid-template-columns:104px minmax(0,1fr);gap:16px;padding:14px 0}
+.news .item img{width:104px;height:104px}
+.news .item h4{font-size:16px;line-height:1.3;margin-bottom:3px}
+.news .item p{font-size:15px;margin:4px 0 0}
+@media (min-width:861px){
+  .cols.news{grid-template-rows:repeat(4,auto);grid-auto-flow:column;column-gap:40px;row-gap:0}
+  .cols.news > div{display:contents}
+}
+/* glossary: label above value, so narrow cards never stack one word per line */
+.gcard dl{grid-template-columns:1fr;gap:0}
+.gcard dt{padding-top:6px}
+.gcard dd{margin:0}
+/* six conditions: 3 × 2, no half-empty row */
+@media (min-width:900px){.conds{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* chapter 1 stats: sources sit on one baseline */
+.stat{display:flex;flex-direction:column}
+.stat .src{margin-top:auto;padding-top:6px}
+/* year steps: the two actions sit side by side */
+.sc-card .ylinks{display:flex;flex-wrap:wrap;gap:8px}
+@media (max-width:560px){.news .item{grid-template-columns:72px minmax(0,1fr);gap:12px}.news .item img{width:72px;height:72px}}
